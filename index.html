@@ -117,6 +117,11 @@
     </div>
 
     <script>
+        // Masukkan URL Google Apps Script Lu di bawah ini
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbwrNk778nOZ_WYlKE_NckXSRIoLzzOTdrup-a-hqcLPcc9_2aHGp4L0po2akUhJBnta/exec';
+        const form = document.getElementById('form-pendaftaran');
+        const btnSubmit = document.getElementById('btn-submit');
+
         function toggleLainnya() {
             const select = document.getElementById('kesibukan');
             const inputLainnya = document.getElementById('input_lainnya');
@@ -129,6 +134,31 @@
                 inputLainnya.value = ''; 
             }
         }
+
+        form.addEventListener('submit', e => {
+            e.preventDefault();
+            
+            // Ubah text tombol biar pendaftar tahu data lagi dikirim
+            btnSubmit.disabled = true;
+            btnSubmit.innerHTML = 'Memproses Pendaftaran...';
+
+            // Kirim data ke Google Sheets
+            fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+            .then(response => {
+                alert('Pendaftaran Berhasil Dicatat! Menuju Halaman Pembayaran...');
+                btnSubmit.disabled = false;
+                btnSubmit.innerHTML = 'Daftar & Bayar Sekarang';
+                
+                // DISINI: Nanti tempat kita taruh logic QRIS Duitku setelah kodenya turun
+                // form.reset(); 
+            })
+            .catch(error => {
+                alert('Waduh, ada kendala koneksi nih. Coba lagi ya!');
+                btnSubmit.disabled = false;
+                btnSubmit.innerHTML = 'Daftar & Bayar Sekarang';
+                console.error('Error!', error.message);
+            });
+        });
     </script>
 </body>
 </html>
