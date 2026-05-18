@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pendaftaran Workshop Finansial | Kendalikan Uangmu, Wujudkan Mimpimu</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Poppins', sans-serif; }
+    </style>
+</head>
+<body class="bg-[#F6F6F6] text-[#1A1A1A] antialiased">
+
+    <div class="min-h-screen flex items-center justify-center p-4 md:p-10 lg:p-20">
+        <main class="w-full max-w-7xl bg-white rounded-3xl shadow-xl overflow-hidden grid grid-cols-1 md:grid-cols-2">
+            
+            <div class="p-8 md:p-12 lg:p-16 flex flex-col justify-between space-y-10">
+                <div class="space-y-6">
+                    <span class="text-[#D8A607] font-bold text-sm tracking-widest uppercase">Personal Finance Workshop</span>
+                    <h1 class="text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tight tracking-tight text-[#1A1A1A]">Kendalikan Uangmu, Wujudkan Mimpimu</h1>
+                    <p class="text-lg text-[#555555] max-w-lg leading-relaxed">
+                        Bebas dari jebakan FOMO! Pelajari rahasia manajemen arus kas dan adaptasi teknologi digital untuk wujudkan target finansialmu tanpa pusing.
+                    </p>
+                </div>
+
+                <div class="space-y-5 border-t border-gray-100 pt-8">
+                    <div class="flex items-center gap-4">
+                        <div class="p-3.5 rounded-full bg-white border border-gray-100 shadow-sm">
+                            <svg class="w-6 h-6 text-[#1A1A1A]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                        </div>
+                        <div>
+                            <p class="text-sm text-gray-500">Investasi / Harga Tiket</p>
+                            <p class="font-extrabold text-2xl text-[#1A1A1A]">Rp 115.500 <span class="text-xs font-normal text-gray-400">/ pax</span></p>
+                        </div>
+                    </div>
+
+                    <div class="flex items-center gap-4">
+                        <div class="p-3.5 rounded-full bg-white border border-gray-100 shadow-sm">
+                            <svg class="w-6 h-6 text-[#1A1A1A]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 00-2 2z"></path></svg>
+                        </div>
+                        <div>
+                            <p class="text-sm text-gray-500">Tanggal Pelaksanaan</p>
+                            <p class="font-bold text-base text-[#1A1A1A]">Sabtu, 6 Juni 2026 (09.00 - 13.00 WIB)</p>
+                        </div>
+                    </div>
+                    
+                    <div class="flex items-center gap-4">
+                        <div class="p-3.5 rounded-full bg-white border border-gray-100 shadow-sm">
+                            <svg class="w-6 h-6 text-[#1A1A1A]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                        </div>
+                        <div>
+                            <p class="text-sm text-gray-500">Lokasi Workshop</p>
+                            <p class="font-bold text-base text-[#1A1A1A]">Omoyari Hall, Gedung Global Bridge Academy</p>
+                        </div>
+                    </div>
+
+                    <div class="flex items-center gap-4 p-4 bg-gray-50 border border-gray-200 rounded-xl mt-2">
+                        <div class="p-3.5 rounded-full bg-white border border-gray-100 shadow-sm">
+                            <svg class="w-6 h-6 text-[#1A1A1A]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 5v2m0 4v2m0 4v2M5 5a2 2 0 00-2 2v3a2 2 0 110 4v3a2 2 0 002 2h14a2 2 0 002-2v-3a2 2 0 110-4V7a2 2 0 00-2-2H5z"></path></svg>
+                        </div>
+                        <div>
+                            <p class="text-sm text-gray-500">Sisa Kuota Pendaftaran</p>
+                            <p class="font-bold text-lg text-[#1A1A1A]"><span id="sisa-kuota" class="text-[#D8A607]">50</span> / 50 Kursi Tersedia</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-[#FED226] p-8 md:p-12 lg:p-16 flex items-center rounded-r-3xl md:rounded-l-none">
+                <form id="form-pendaftaran" class="w-full space-y-6">
+                    <h2 class="text-3xl font-bold text-[#1A1A1A] mb-8">Daftar Sekarang</h2>
+
+                    <div class="space-y-1.5">
+                        <label for="nama" class="font-semibold text-[#1A1A1A]">Nama Lengkap</label>
+                        <input id="nama" name="nama" type="text" placeholder="Contoh: John Doe" required class="w-full px-5 py-4 bg-white rounded-xl text-[#1A1A1A] placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#1A1A1A] transition">
+                    </div>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div class="space-y-1.5">
+                            <label for="email" class="font-semibold text-[#1A1A1A]">Email</label>
+                            <input id="email" name="email" type="email" placeholder="john@email.com" required class="w-full px-5 py-4 bg-white rounded-xl text-[#1A1A1A] placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#1A1A1A] transition">
+                        </div>
+                        <div class="space-y-1.5">
+                            <label for="whatsapp" class="font-semibold text-[#1A1A1A]">No. WhatsApp</label>
+                            <input id="whatsapp" name="whatsapp" type="tel" placeholder="08123xxx" required class="w-full px-5 py-4 bg-white rounded-xl text-[#1A1A1A] placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#1A1A1A] transition">
+                        </div>
+                    </div>
+
+                    <div class="space-y-1.5">
+                        <label for="kesibukan" class="font-semibold text-[#1A1A1A]">Kesibukan Saat Ini</label>
+                        <select id="kesibukan" name="kesibukan" onchange="toggleLainnya()" required class="w-full px-5 py-4 bg-white rounded-xl text-[#1A1A1A] appearance-none focus:outline-none focus:ring-2 focus:ring-[#1A1A1A] transition cursor-pointer">
+                            <option value="" disabled selected class="text-gray-400">Pilih...</option>
+                            <option value="Mahasiswa">Mahasiswa</option>
+                            <option value="Karyawan">Karyawan</option>
+                            <option value="Wirausaha">Wirausaha / Freelancer</option>
+                            <option value="Ibu Rumah Tangga">Ibu Rumah Tangga</option>
+                            <option value="Lainnya">Lainnya</option>
+                        </select>
+                        <input type="text" id="input_lainnya" name="kesibukan_lainnya" placeholder="Sebutkan kesibukanmu..." class="hidden mt-3 w-full px-5 py-4 bg-white rounded-xl text-[#1A1A1A] placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#1A1A1A] transition">
+                    </div>
+
+                    <div class="space-y-1.5">
+                        <label for="masalah" class="font-semibold text-[#1A1A1A]">Masalah Keuangan Terbesar</label>
+                        <textarea id="masalah" name="masalah" rows="3" placeholder="Ceritakan sedikit masalah keuangan kamu (misal: susah nabung, terlilit utang)" required class="w-full px-5 py-4 bg-white rounded-xl text-[#1A1A1A] placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#1A1A1A] transition resize-none"></textarea>
+                    </div>
+
+                    <div class="pt-6">
+                        <button type="submit" id="btn-submit" class="w-full flex items-center justify-center gap-3 px-8 py-5 bg-[#1A1A1A] text-white font-bold text-lg rounded-xl hover:bg-gray-800 focus:outline-none focus:ring-4 focus:ring-gray-300 transition duration-150 shadow-md">
+                            Daftar & Bayar Sekarang
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        function toggleLainnya() {
+            const select = document.getElementById('kesibukan');
+            const inputLainnya = document.getElementById('input_lainnya');
+            if (select.value === 'Lainnya') {
+                inputLainnya.classList.remove('hidden');
+                inputLainnya.setAttribute('required', 'true');
+            } else {
+                inputLainnya.classList.add('hidden');
+                inputLainnya.removeAttribute('required');
+                inputLainnya.value = ''; 
+            }
+        }
+    </script>
+</body>
+</html>
