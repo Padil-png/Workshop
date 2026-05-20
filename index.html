@@ -31,7 +31,7 @@
                         </div>
                         <div>
                             <p class="text-sm text-gray-500">Investasi / Harga Tiket</p>
-                            <p class="font-extrabold text-2xl text-[#1A1A1A]">Rp 100.000 <span class="text-xs font-normal text-gray-400">/ pax</span></p>
+                            <p class="font-extrabold text-2xl text-[#1A1A1A]">Rp 115.500 <span class="text-xs font-normal text-gray-400">/ pax</span></p>
                         </div>
                     </div>
 
@@ -117,10 +117,12 @@
     </div>
 
     <script>
-        // Masukkan URL Google Apps Script Lu di bawah ini
+        // GANTI URL INI KALAU LU HABIS DEPLOY ULANG APPS SCRIPT-NYA!
         const scriptURL = 'https://script.google.com/macros/s/AKfycbwrNk778nOZ_WYlKE_NckXSRIoLzzOTdrup-a-hqcLPcc9_2aHGp4L0po2akUhJBnta/exec';
+        
         const form = document.getElementById('form-pendaftaran');
         const btnSubmit = document.getElementById('btn-submit');
+        const formContainer = form.parentElement; // Menargetkan kotak kuning pembungkus form
 
         function toggleLainnya() {
             const select = document.getElementById('kesibukan');
@@ -138,25 +140,56 @@
         form.addEventListener('submit', e => {
             e.preventDefault();
             
-            // Ubah text tombol biar pendaftar tahu data lagi dikirim
+            // Ubah text tombol jadi animasi loading
+            const originalBtnText = btnSubmit.innerHTML;
             btnSubmit.disabled = true;
-            btnSubmit.innerHTML = 'Memproses Pendaftaran...';
+            btnSubmit.innerHTML = `
+                <svg class="animate-spin -ml-1 mr-3 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg>
+                Memproses Tiket...`;
 
-            // Kirim data ke Google Sheets
+            // Kirim data ke Google Sheets via fetch
             fetch(scriptURL, { method: 'POST', body: new FormData(form)})
-            .then(response => {
-                alert('Pendaftaran Berhasil Dicatat! Menuju Halaman Pembayaran...');
-                btnSubmit.disabled = false;
-                btnSubmit.innerHTML = 'Daftar & Bayar Sekarang';
-                
-                // DISINI: Nanti tempat kita taruh logic QRIS Duitku setelah kodenya turun
-                // form.reset(); 
+            .then(response => response.json())
+            .then(result => {
+                if (result.result === 'success') {
+                    // Ambil ID tiket dari response Apps Script
+                    const ticketID = result.ticketID;
+                    
+                    // Generate Link Gambar QR Code
+                    const qrCodeUrl = `https://api.qrserver.com/v1/create-qr-code/?size=250x250&data=${ticketID}`;
+                    
+                    // Hapus Form dan munculkan E-Tiket di kotak kuning
+                    formContainer.innerHTML = `
+                        <div class="w-full bg-white rounded-2xl p-8 text-center shadow-lg border-2 border-dashed border-[#1A1A1A]">
+                            <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                                <svg class="w-8 h-8 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                            </div>
+                            <h3 class="text-2xl font-bold text-[#1A1A1A] mb-2">Pendaftaran Berhasil!</h3>
+                            <p class="text-gray-500 text-sm mb-6">Data kamu sudah diamankan. Silakan <b>screenshot</b> E-Tiket ini untuk dibawa saat registrasi ulang.</p>
+                            
+                            <div class="inline-block p-4 bg-white border border-gray-200 rounded-xl shadow-sm mb-4">
+                                <img src="${qrCodeUrl}" alt="QR Code" class="w-48 h-48 object-cover mx-auto">
+                            </div>
+                            
+                            <div class="bg-gray-50 py-3 rounded-lg border border-gray-200 mt-2">
+                                <p class="text-xs text-gray-500 uppercase tracking-widest mb-1">Kode Booking (Ticket ID)</p>
+                                <p class="text-xl font-bold font-mono text-[#D8A607] tracking-wider">${ticketID}</p>
+                            </div>
+                            
+                            <p class="text-xs text-gray-400 mt-6">Simpan tiket ini. Sampai jumpa di lokasi workshop!</p>
+                        </div>
+                    `;
+                } else {
+                    alert('Pendaftaran gagal direkam. Silakan coba lagi.');
+                    btnSubmit.disabled = false;
+                    btnSubmit.innerHTML = originalBtnText;
+                }
             })
             .catch(error => {
-                alert('Waduh, ada kendala koneksi nih. Coba lagi ya!');
+                alert('Waduh, ada kendala koneksi nih. Pastikan internet stabil dan coba lagi!');
                 btnSubmit.disabled = false;
-                btnSubmit.innerHTML = 'Daftar & Bayar Sekarang';
-                console.error('Error!', error.message);
+                btnSubmit.innerHTML = originalBtnText;
+                console.error('Error!', error);
             });
         });
     </script>
