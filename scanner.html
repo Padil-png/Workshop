@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scanner Panitia | Workshop Finance</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/html5-qrcode"></script> 
+</head>
+<body class="bg-[#1A1A1A] text-white flex flex-col items-center justify-center min-h-screen p-4 font-sans">
+
+    <div class="w-full max-w-md bg-white rounded-3xl shadow-2xl p-6 text-center">
+        <h2 class="text-2xl font-extrabold text-[#1A1A1A] mb-1">Scanner Tiket</h2>
+        <p class="text-sm text-gray-500 mb-6">Arahkan kamera ke QR Code peserta</p>
+
+        <div id="reader" class="w-full rounded-2xl overflow-hidden border-4 border-dashed border-[#FED226] mb-4"></div>
+
+        <div id="result" class="hidden rounded-xl p-4 mb-4 text-lg font-bold shadow-sm"></div>
+
+        <button id="btn-scan-lagi" class="hidden w-full bg-[#D8A607] hover:bg-[#b58b06] text-[#1A1A1A] font-bold py-4 rounded-xl transition shadow-md" onclick="resetScanner()">
+            Scan Tiket Berikutnya
+        </button>
+    </div>
+
+    <script>
+        // MASUKIN URL WEB APP GOOGLE APPS SCRIPT LU DI SINI
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbwrNk778nOZ_WYlKE_NckXSRIoLzzOTdrup-a-hqcLPcc9_2aHGp4L0po2akUhJBnta/exec'; 
+        
+        let html5QrcodeScanner;
+
+        // Setting kamera biar smooth
+        function startScanner() {
+            html5QrcodeScanner = new Html5QrcodeScanner(
+                "reader", { fps: 10, qrbox: { width: 250, height: 250 } }, false
+            );
+            html5QrcodeScanner.render(onScanSuccess, onScanFailure);
+        }
+
+        function onScanSuccess(decodedText, decodedResult) {
+            // STOP kamera sementara biar gak ngirim data berkali-kali
+            html5QrcodeScanner.pause(true);
+            
+            const resultDiv = document.getElementById('result');
+            const btnScanLagi = document.getElementById('btn-scan-lagi');
+            
+            // Tampilan Loading
+            resultDiv.className = "rounded-xl p-4 mb-4 text-sm font-bold shadow-sm bg-blue-100 text-blue-700";
+            resultDiv.innerHTML = `Mengecek tiket <b>${decodedText}</b>... <br><span class="text-xs font-normal">Mohon tunggu sebentar</span>`;
+            
+            // Tembak data "action: scan" ke Google Sheets
+            fetch(scriptURL, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ action: 'scan', ticketID: decodedText })
+            })
+            .then(response => response.json())
+            .then(data => {
+                // Tampilan Sukses (Ijo), Gagal (Merah), Sudah Dipakai (Kuning)
+                if(data.result === 'success') {
+                    resultDiv.className = "rounded-xl p-4 mb-4 text-base font-bold shadow-sm bg-green-100 text-green-700 border border-green-300";
+                } else if(data.result === 'warning') {
+                    resultDiv.className = "rounded-xl p-4 mb-4 text-base font-bold shadow-sm bg-yellow-100 text-yellow-700 border border-yellow-300";
+                } else {
+                    resultDiv.className = "rounded-xl p-4 mb-4 text-base font-bold shadow-sm bg-red-100 text-red-700 border border-red-300";
+                }
+                resultDiv.innerHTML = data.message;
+                btnScanLagi.classList.remove('hidden');
+            })
+            .catch(error => {
+                resultDiv.className = "rounded-xl p-4 mb-4 text-base font-bold shadow-sm bg-red-100 text-red-700";
+                resultDiv.innerHTML = "Waduh, koneksi internet panitia putus. Coba lagi!";
+                btnScanLagi.classList.remove('hidden');
+            });
+        }
+
+        function onScanFailure(error) {
+            // Biarkan kosong, ini emang otomatis jalan terus nyari QR
+        }
+
+        function resetScanner() {
+            document.getElementById('result').classList.add('hidden');
+            document.getElementById('btn-scan-lagi').classList.add('hidden');
+            html5QrcodeScanner.resume(); // Nyalain kamera lagi
+        }
+
+        // Mulai kamera saat halaman dibuka
+        window.onload = startScanner;
+    </script>
+</body>
+</html>
