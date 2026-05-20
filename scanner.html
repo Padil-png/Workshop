@@ -14,11 +14,11 @@
         <p class="text-sm text-gray-500 mb-6">Arahkan kamera ke QR Code peserta</p>
 
         <div id="reader" class="w-full rounded-2xl overflow-hidden border-4 border-dashed border-[#FED226] mb-4 bg-gray-100 min-h-[250px] flex items-center justify-center">
-            <p id="kamera-placeholder" class="text-gray-400 text-sm font-medium">Kamera belum aktif</p>
+            <p id="kamera-placeholder" class="text-gray-400 text-sm font-medium">Memulai Kamera...</p>
         </div>
 
-        <button id="btn-start-kamera" class="w-full bg-[#1A1A1A] hover:bg-gray-800 text-white font-bold py-4 rounded-xl transition shadow-md mb-4" onclick="mulaiKamera()">
-            📷 Nyalakan Kamera
+        <button id="btn-start-kamera" class="hidden w-full bg-[#1A1A1A] hover:bg-gray-800 text-white font-bold py-4 rounded-xl transition shadow-md mb-4" onclick="mulaiKamera()">
+            📷 Izinkan & Nyalakan Kamera
         </button>
 
         <div id="result" class="hidden rounded-xl p-4 mb-4 text-lg font-bold shadow-sm"></div>
@@ -29,40 +29,33 @@
     </div>
 
     <script>
-        // WAJIB DIGANTI: Masukin URL Web App Google Apps Script lu yang baru
+        // MASUKIN URL APPS SCRIPT LU YANG HABIS DI-DEPLOY ULANG DI SINI
         const scriptURL = 'https://script.google.com/macros/s/AKfycbwrNk778nOZ_WYlKE_NckXSRIoLzzOTdrup-a-hqcLPcc9_2aHGp4L0po2akUhJBnta/exec'; 
         
         let html5QrCode;
 
         function mulaiKamera() {
             const btnStart = document.getElementById('btn-start-kamera');
-            btnStart.innerHTML = "Meminta Izin Kamera...";
-            btnStart.disabled = true;
+            btnStart.classList.add('hidden'); 
 
-            // Panggil API langsung tanpa UI bawaan yang berantakan
             html5QrCode = new Html5Qrcode("reader");
             const config = { fps: 10, qrbox: { width: 220, height: 220 } };
 
-            // Paksa pakai kamera belakang (environment)
             html5QrCode.start({ facingMode: "environment" }, config, onScanSuccess)
             .then(() => {
                 document.getElementById('kamera-placeholder').style.display = 'none';
-                btnStart.style.display = 'none'; // Sembunyiin tombol kalau kamera sukses nyala
             })
             .catch((err) => {
-                alert("Gagal akses kamera! Pastikan lu pencet 'Allow' atau 'Izinkan' pas browser minta akses kamera ya.");
-                btnStart.innerHTML = "📷 Coba Nyalakan Lagi";
-                btnStart.disabled = false;
+                document.getElementById('kamera-placeholder').style.display = 'none';
+                btnStart.classList.remove('hidden');
+                console.error(err);
             });
         }
 
         function onScanSuccess(decodedText) {
-            // Matiin kamera bentar biar gak nge-scan double-double
             html5QrCode.stop().then(() => {
                 prosesData(decodedText);
-            }).catch(err => {
-                console.error("Gagal stop kamera", err);
-            });
+            }).catch(err => console.error("Gagal stop kamera", err));
         }
 
         function prosesData(ticketID) {
@@ -73,11 +66,13 @@
             resultDiv.className = "rounded-xl p-4 mb-4 text-sm font-bold shadow-sm bg-blue-100 text-blue-700";
             resultDiv.innerHTML = `Mengecek tiket <b>${ticketID}</b>... <br><span class="text-xs font-normal">Mohon tunggu sebentar</span>`;
             
-            // Kirim ke Google Sheets
+            const payload = new URLSearchParams();
+            payload.append('action', 'scan');
+            payload.append('ticketID', ticketID);
+
             fetch(scriptURL, {
                 method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ action: 'scan', ticketID: ticketID })
+                body: payload
             })
             .then(response => response.json())
             .then(data => {
@@ -93,7 +88,7 @@
             })
             .catch(error => {
                 resultDiv.className = "rounded-xl p-4 mb-4 text-base font-bold shadow-sm bg-red-100 text-red-700";
-                resultDiv.innerHTML = "Waduh, koneksi internet panitia putus. Coba lagi!";
+                resultDiv.innerHTML = "Gagal terhubung ke Google Sheets. Coba lagi!";
                 btnScanLagi.classList.remove('hidden');
             });
         }
@@ -101,8 +96,10 @@
         function resetScanner() {
             document.getElementById('result').classList.add('hidden');
             document.getElementById('btn-scan-lagi').classList.add('hidden');
-            mulaiKamera(); // Nyalain kamera lagi buat next tiket
+            mulaiKamera(); 
         }
+
+        window.onload = mulaiKamera;
     </script>
 </body>
 </html>
