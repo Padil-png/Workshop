@@ -3,126 +3,131 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pendaftaran Workshop Finansial | Kendalikan Uangmu, Wujudkan Mimpimu</title>
+    <title>Pendaftaran Workshop Finansial | PadiLabs</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
         body { font-family: 'Poppins', sans-serif; }
+        .fade-in { animation: fadeIn 0.5s ease-in-out; }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
     </style>
 </head>
 <body class="bg-[#F6F6F6] text-[#1A1A1A] antialiased">
 
     <div class="min-h-screen flex items-center justify-center p-4 md:p-10 lg:p-20">
-        <main class="w-full max-w-7xl bg-white rounded-3xl shadow-xl overflow-hidden grid grid-cols-1 md:grid-cols-2">
+        <main class="w-full max-w-7xl bg-white rounded-[2rem] shadow-2xl overflow-hidden grid grid-cols-1 md:grid-cols-2">
             
-            <div class="p-8 md:p-12 lg:p-16 flex flex-col justify-between space-y-10">
+            <div class="p-8 md:p-12 lg:p-16 flex flex-col justify-between space-y-10 bg-white">
                 <div class="space-y-6">
-                    <span class="text-[#D8A607] font-bold text-sm tracking-widest uppercase">Personal Finance Workshop</span>
-                    <h1 class="text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tight tracking-tight text-[#1A1A1A]">Kendalikan Uangmu, Wujudkan Mimpimu</h1>
+                    <span class="inline-block px-4 py-1.5 bg-yellow-100 text-[#D8A607] font-bold text-xs tracking-widest uppercase rounded-full">Personal Finance Workshop</span>
+                    <h1 class="text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tight tracking-tight text-[#1A1A1A]">
+                        Kendalikan Uangmu, Wujudkan Mimpimu
+                    </h1>
                     <p class="text-lg text-[#555555] max-w-lg leading-relaxed">
                         Bebas dari jebakan FOMO! Pelajari rahasia manajemen arus kas dan adaptasi teknologi digital untuk wujudkan target finansialmu tanpa pusing.
                     </p>
                 </div>
 
-                <div class="space-y-5 border-t border-gray-100 pt-8">
-                    <div class="flex items-center gap-4">
-                        <div class="p-3.5 rounded-full bg-white border border-gray-100 shadow-sm">
+                <div class="space-y-6 border-t border-gray-100 pt-8">
+                    <div class="flex items-center gap-5">
+                        <div class="p-4 rounded-2xl bg-gray-50 border border-gray-100 shadow-sm">
                             <svg class="w-6 h-6 text-[#1A1A1A]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
                         </div>
                         <div>
-                            <p class="text-sm text-gray-500">Investasi / Harga Tiket</p>
-                            <p class="font-extrabold text-2xl text-[#1A1A1A]">Rp 115.500 <span class="text-xs font-normal text-gray-400">/ pax</span></p>
+                            <p class="text-sm text-gray-500 font-medium">Investasi Tiket</p>
+                            <p class="font-extrabold text-2xl text-[#1A1A1A]">Rp 115.500</p>
                         </div>
                     </div>
 
-                    <div class="flex items-center gap-4">
-                        <div class="p-3.5 rounded-full bg-white border border-gray-100 shadow-sm">
+                    <div class="flex items-center gap-5">
+                        <div class="p-4 rounded-2xl bg-gray-50 border border-gray-100 shadow-sm">
                             <svg class="w-6 h-6 text-[#1A1A1A]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 00-2 2z"></path></svg>
                         </div>
                         <div>
-                            <p class="text-sm text-gray-500">Tanggal Pelaksanaan</p>
-                            <p class="font-bold text-base text-[#1A1A1A]">Sabtu, 6 Juni 2026 (09.00 - 13.00 WIB)</p>
+                            <p class="text-sm text-gray-500 font-medium">Waktu Pelaksanaan</p>
+                            <p class="font-bold text-base text-[#1A1A1A]">Sabtu, 6 Juni 2026<br><span class="text-sm font-normal">09.00 - 13.00 WIB</span></p>
                         </div>
                     </div>
                     
-                    <div class="flex items-center gap-4">
-                        <div class="p-3.5 rounded-full bg-white border border-gray-100 shadow-sm">
+                    <div class="flex items-center gap-5">
+                        <div class="p-4 rounded-2xl bg-gray-50 border border-gray-100 shadow-sm">
                             <svg class="w-6 h-6 text-[#1A1A1A]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
                         </div>
                         <div>
-                            <p class="text-sm text-gray-500">Lokasi Workshop</p>
-                            <p class="font-bold text-base text-[#1A1A1A]">Omoyari Hall, Gedung Global Bridge Academy</p>
-                        </div>
-                    </div>
-
-                    <div class="flex items-center gap-4 p-4 bg-gray-50 border border-gray-200 rounded-xl mt-2">
-                        <div class="p-3.5 rounded-full bg-white border border-gray-100 shadow-sm">
-                            <svg class="w-6 h-6 text-[#1A1A1A]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 5v2m0 4v2m0 4v2M5 5a2 2 0 00-2 2v3a2 2 0 110 4v3a2 2 0 002 2h14a2 2 0 002-2v-3a2 2 0 110-4V7a2 2 0 00-2-2H5z"></path></svg>
-                        </div>
-                        <div>
-                            <p class="text-sm text-gray-500">Sisa Kuota Pendaftaran</p>
-                            <p class="font-bold text-lg text-[#1A1A1A]"><span id="sisa-kuota" class="text-[#D8A607]">50</span> / 50 Kursi Tersedia</p>
+                            <p class="text-sm text-gray-500 font-medium">Lokasi Workshop</p>
+                            <p class="font-bold text-base text-[#1A1A1A]">Omoyari Hall<br><span class="text-sm font-normal">Gedung Global Bridge Academy</span></p>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <div class="bg-[#FED226] p-8 md:p-12 lg:p-16 flex items-center rounded-r-3xl md:rounded-l-none">
-                <form id="form-pendaftaran" class="w-full space-y-6">
-                    <h2 class="text-3xl font-bold text-[#1A1A1A] mb-8">Daftar Sekarang</h2>
+            <div class="bg-[#FED226] p-8 md:p-12 lg:p-16 flex items-center justify-center relative overflow-hidden">
+                <div class="absolute -top-24 -right-24 w-64 h-64 bg-white opacity-10 rounded-full blur-3xl"></div>
+                <div class="absolute -bottom-24 -left-24 w-64 h-64 bg-black opacity-5 rounded-full blur-3xl"></div>
 
-                    <div class="space-y-1.5">
-                        <label for="nama" class="font-semibold text-[#1A1A1A]">Nama Lengkap</label>
-                        <input id="nama" name="nama" type="text" placeholder="Contoh: John Doe" required class="w-full px-5 py-4 bg-white rounded-xl text-[#1A1A1A] placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#1A1A1A] transition">
-                    </div>
-
-                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                        <div class="space-y-1.5">
-                            <label for="email" class="font-semibold text-[#1A1A1A]">Email</label>
-                            <input id="email" name="email" type="email" placeholder="john@email.com" required class="w-full px-5 py-4 bg-white rounded-xl text-[#1A1A1A] placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#1A1A1A] transition">
+                <div id="form-container" class="w-full max-w-md bg-white p-8 md:p-10 rounded-[2rem] shadow-2xl relative z-10 transition-all duration-300">
+                    <form id="form-pendaftaran" class="w-full space-y-5 fade-in">
+                        <div class="mb-8">
+                            <h2 class="text-3xl font-extrabold text-[#1A1A1A]">Daftar Sekarang</h2>
+                            <p class="text-sm text-gray-500 mt-2">Isi data diri dengan benar untuk pengiriman tiket.</p>
                         </div>
+
                         <div class="space-y-1.5">
-                            <label for="whatsapp" class="font-semibold text-[#1A1A1A]">No. WhatsApp</label>
-                            <input id="whatsapp" name="whatsapp" type="tel" placeholder="08123xxx" required class="w-full px-5 py-4 bg-white rounded-xl text-[#1A1A1A] placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#1A1A1A] transition">
+                            <label class="text-sm font-semibold text-[#1A1A1A] ml-1">Nama Lengkap</label>
+                            <input name="nama" type="text" placeholder="Contoh: John Doe" required class="w-full px-5 py-4 bg-gray-50 border border-gray-200 rounded-xl text-[#1A1A1A] placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#1A1A1A] focus:bg-white transition-all">
                         </div>
-                    </div>
 
-                    <div class="space-y-1.5">
-                        <label for="kesibukan" class="font-semibold text-[#1A1A1A]">Kesibukan Saat Ini</label>
-                        <select id="kesibukan" name="kesibukan" onchange="toggleLainnya()" required class="w-full px-5 py-4 bg-white rounded-xl text-[#1A1A1A] appearance-none focus:outline-none focus:ring-2 focus:ring-[#1A1A1A] transition cursor-pointer">
-                            <option value="" disabled selected class="text-gray-400">Pilih...</option>
-                            <option value="Mahasiswa">Mahasiswa</option>
-                            <option value="Karyawan">Karyawan</option>
-                            <option value="Wirausaha">Wirausaha / Freelancer</option>
-                            <option value="Ibu Rumah Tangga">Ibu Rumah Tangga</option>
-                            <option value="Lainnya">Lainnya</option>
-                        </select>
-                        <input type="text" id="input_lainnya" name="kesibukan_lainnya" placeholder="Sebutkan kesibukanmu..." class="hidden mt-3 w-full px-5 py-4 bg-white rounded-xl text-[#1A1A1A] placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#1A1A1A] transition">
-                    </div>
+                        <div class="space-y-1.5">
+                            <label class="text-sm font-semibold text-[#1A1A1A] ml-1">Email Aktif</label>
+                            <input name="email" type="email" placeholder="john@email.com" required class="w-full px-5 py-4 bg-gray-50 border border-gray-200 rounded-xl text-[#1A1A1A] placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#1A1A1A] focus:bg-white transition-all">
+                        </div>
 
-                    <div class="space-y-1.5">
-                        <label for="masalah" class="font-semibold text-[#1A1A1A]">Masalah Keuangan Terbesar</label>
-                        <textarea id="masalah" name="masalah" rows="3" placeholder="Ceritakan sedikit masalah keuangan kamu (misal: susah nabung, terlilit utang)" required class="w-full px-5 py-4 bg-white rounded-xl text-[#1A1A1A] placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#1A1A1A] transition resize-none"></textarea>
-                    </div>
+                        <div class="space-y-1.5">
+                            <label class="text-sm font-semibold text-[#1A1A1A] ml-1">No. WhatsApp</label>
+                            <input name="whatsapp" type="tel" placeholder="08123xxxx" required class="w-full px-5 py-4 bg-gray-50 border border-gray-200 rounded-xl text-[#1A1A1A] placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#1A1A1A] focus:bg-white transition-all">
+                        </div>
 
-                    <div class="pt-6">
-                        <button type="submit" id="btn-submit" class="w-full flex items-center justify-center gap-3 px-8 py-5 bg-[#1A1A1A] text-white font-bold text-lg rounded-xl hover:bg-gray-800 focus:outline-none focus:ring-4 focus:ring-gray-300 transition duration-150 shadow-md">
-                            Daftar & Bayar Sekarang
-                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
-                        </button>
-                    </div>
-                </form>
+                        <div class="space-y-1.5">
+                            <label class="text-sm font-semibold text-[#1A1A1A] ml-1">Kesibukan Saat Ini</label>
+                            <select id="kesibukan" name="kesibukan" onchange="toggleLainnya()" required class="w-full px-5 py-4 bg-gray-50 border border-gray-200 rounded-xl text-[#1A1A1A] appearance-none focus:outline-none focus:ring-2 focus:ring-[#1A1A1A] focus:bg-white transition-all cursor-pointer">
+                                <option value="" disabled selected class="text-gray-400">Pilih...</option>
+                                <option value="Mahasiswa">Mahasiswa</option>
+                                <option value="Karyawan">Karyawan</option>
+                                <option value="Wirausaha">Wirausaha / Freelancer</option>
+                                <option value="Ibu Rumah Tangga">Ibu Rumah Tangga</option>
+                                <option value="Lainnya">Lainnya</option>
+                            </select>
+                            <input type="text" id="input_lainnya" name="kesibukan_lainnya" placeholder="Sebutkan kesibukanmu..." class="hidden mt-3 w-full px-5 py-4 bg-gray-50 border border-gray-200 rounded-xl text-[#1A1A1A] placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#1A1A1A] transition-all">
+                        </div>
+
+                        <div class="space-y-1.5">
+                            <label class="text-sm font-semibold text-[#1A1A1A] ml-1">Masalah Keuangan Terbesar</label>
+                            <textarea name="masalah" rows="2" placeholder="Singkat saja, misal: susah nabung" required class="w-full px-5 py-4 bg-gray-50 border border-gray-200 rounded-xl text-[#1A1A1A] placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#1A1A1A] focus:bg-white transition-all resize-none"></textarea>
+                        </div>
+
+                        <div class="pt-4">
+                            <button type="submit" id="btn-submit" class="w-full flex items-center justify-center gap-2 px-8 py-4 bg-[#1A1A1A] text-white font-bold text-lg rounded-xl hover:bg-gray-800 focus:outline-none focus:ring-4 focus:ring-gray-300 transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-1">
+                                Lanjut Pembayaran
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                            </button>
+                        </div>
+                    </form>
+                </div>
             </div>
         </main>
     </div>
 
     <script>
-        // MASUKIN URL APPS SCRIPT LU YANG HABIS DI-DEPLOY ULANG DI SINI
-        const scriptURL = 'https://script.google.com/macros/s/AKfycbwrNk778nOZ_WYlKE_NckXSRIoLzzOTdrup-a-hqcLPcc9_2aHGp4L0po2akUhJBnta/exec';
+        // MASUKIN LINK LU DI SINI
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbx3i-rCztrPCYXBJUkNml97SOGMiUJFBdbkX2TbK78R8lnZWy-KZ-i6fja5wRLL1ks/exec';
+        const linkWinme = 'https://winme.id/bayaronline/pl/INV-20260522-42520'; 
         
         const form = document.getElementById('form-pendaftaran');
         const btnSubmit = document.getElementById('btn-submit');
-        const formContainer = form.parentElement; 
+        const formContainer = document.getElementById('form-container');
 
         function toggleLainnya() {
             const select = document.getElementById('kesibukan');
@@ -140,50 +145,54 @@
         form.addEventListener('submit', e => {
             e.preventDefault();
             
+            // State Loading
             const originalBtnText = btnSubmit.innerHTML;
             btnSubmit.disabled = true;
             btnSubmit.innerHTML = `
                 <svg class="animate-spin -ml-1 mr-3 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg>
-                Memproses Tiket...`;
+                Memproses Data...`;
 
             fetch(scriptURL, { method: 'POST', body: new FormData(form)})
             .then(response => response.json())
             .then(result => {
                 if (result.result === 'success') {
-                    const ticketID = result.ticketID;
-                    const qrCodeUrl = `https://api.qrserver.com/v1/create-qr-code/?size=250x250&data=${ticketID}`;
-                    
+                    // UI/UX STATE 2: BERHASIL DAFTAR & PERINGATAN EMAIL
                     formContainer.innerHTML = `
-                        <div class="w-full bg-white rounded-2xl p-8 text-center shadow-lg border-2 border-dashed border-[#1A1A1A]">
-                            <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                                <svg class="w-8 h-8 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                        <div class="text-center fade-in">
+                            <div class="w-20 h-20 bg-green-50 rounded-full flex items-center justify-center mx-auto mb-6 border-8 border-green-100">
+                                <svg class="w-10 h-10 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path></svg>
                             </div>
-                            <h3 class="text-2xl font-bold text-[#1A1A1A] mb-2">Pendaftaran Berhasil!</h3>
-                            <p class="text-gray-500 text-sm mb-6">Data kamu sudah diamankan. Silakan <b>screenshot</b> E-Tiket ini untuk dibawa saat registrasi ulang.</p>
+                            <h3 class="text-3xl font-extrabold text-[#1A1A1A] mb-2">Satu Langkah Lagi!</h3>
+                            <p class="text-gray-500 text-sm mb-8 px-2">Data lu udah aman di sistem. Selesaikan pembayaran untuk nerbitin tiket.</p>
                             
-                            <div class="inline-block p-4 bg-white border border-gray-200 rounded-xl shadow-sm mb-4">
-                                <img src="${qrCodeUrl}" alt="QR Code" class="w-48 h-48 object-cover mx-auto">
+                            <div class="bg-yellow-50 border border-yellow-200 p-5 rounded-2xl text-left mb-8 relative overflow-hidden">
+                                <div class="absolute top-0 left-0 w-1 h-full bg-[#D8A607]"></div>
+                                <p class="font-bold text-[#1A1A1A] text-sm mb-2 flex items-center gap-2">
+                                    <svg class="w-5 h-5 text-[#D8A607]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                                    Info Penting
+                                </p>
+                                <ul class="list-disc pl-5 space-y-1.5 text-sm text-gray-700">
+                                    <li>E-Tiket & QR Code akan dikirim via email.</li>
+                                    <li>Maksimal pengiriman <b>1x24 jam</b> setelah lunas.</li>
+                                </ul>
                             </div>
                             
-                            <div class="bg-gray-50 py-3 rounded-lg border border-gray-200 mt-2">
-                                <p class="text-xs text-gray-500 uppercase tracking-widest mb-1">Kode Booking (Ticket ID)</p>
-                                <p class="text-xl font-bold font-mono text-[#D8A607] tracking-wider">${ticketID}</p>
-                            </div>
-                            
-                            <p class="text-xs text-gray-400 mt-6">Simpan tiket ini. Sampai jumpa di lokasi workshop!</p>
+                            <a href="${linkWinme}" class="w-full flex items-center justify-center gap-2 px-8 py-4 bg-[#1A1A1A] text-white font-bold text-lg rounded-xl hover:bg-gray-800 transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-1">
+                                Bayar Rp 115.500
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                            </a>
                         </div>
                     `;
                 } else {
-                    alert('Pendaftaran gagal direkam. Silakan coba lagi.');
+                    alert('Sistem lagi sibuk. Coba klik daftar sekali lagi ya.');
                     btnSubmit.disabled = false;
                     btnSubmit.innerHTML = originalBtnText;
                 }
             })
             .catch(error => {
-                alert('Waduh, ada kendala koneksi nih. Pastikan internet stabil dan coba lagi!');
+                alert('Wah koneksi terputus. Pastikan internet stabil dan coba lagi.');
                 btnSubmit.disabled = false;
                 btnSubmit.innerHTML = originalBtnText;
-                console.error('Error!', error);
             });
         });
     </script>
