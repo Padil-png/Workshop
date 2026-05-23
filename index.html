@@ -85,7 +85,6 @@
                         </ul>
                     </div>
                 </div>
-
             </div>
 
             <div class="bg-[#FED226] p-6 sm:p-8 md:p-12 lg:p-16 flex items-center justify-center relative overflow-hidden">
@@ -135,8 +134,7 @@
 
                         <div class="pt-2 md:pt-4">
                             <button type="submit" id="btn-submit" class="w-full flex items-center justify-center gap-2 px-6 py-3 md:px-8 md:py-4 bg-[#1A1A1A] text-white font-bold text-base md:text-lg rounded-xl hover:bg-gray-800 focus:outline-none focus:ring-4 focus:ring-gray-300 transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-1">
-                                Daftar & Bayar
-                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                                <span id="text-btn">Mengecek Kuota...</span>
                             </button>
                         </div>
                     </form>
@@ -160,20 +158,37 @@
     </div>
 
     <script>
-        const isSoldOut = false; // Ganti ke true kalau tiket abis!
-
         const scriptURL = 'https://script.google.com/macros/s/AKfycbxrYIxd33xfxi7i-p8YaGT_uesx1c4D_xbmDv1Uiz7JkFiY3NmjnH1_Mp8xhHncI_7B/exec';
         const linkWinme = 'https://winme.id/bayaronline/pl/INV-20260522-42520'; 
         
         const form = document.getElementById('form-pendaftaran');
         const kotakSoldOut = document.getElementById('kotak-soldout');
         const btnSubmit = document.getElementById('btn-submit');
+        const textBtn = document.getElementById('text-btn');
         const formContainer = document.getElementById('form-container');
 
-        if (isSoldOut) {
-            form.style.display = 'none';
-            kotakSoldOut.classList.remove('hidden');
-        }
+        // FITUR OTOMATIS CEK KUOTA SAAT WEB DIBUKA
+        btnSubmit.disabled = true;
+        
+        fetch(scriptURL)
+            .then(response => response.json())
+            .then(data => {
+                if (data.status === 'habis') {
+                    // Otomatis nutup form kalau kuota full
+                    form.style.display = 'none';
+                    kotakSoldOut.classList.remove('hidden');
+                } else {
+                    // Kalau kuota aman, buka tombolnya
+                    btnSubmit.disabled = false;
+                    textBtn.innerHTML = `Daftar & Bayar <svg class="w-5 h-5 inline" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>`;
+                }
+            })
+            .catch(error => {
+                // Kalau internet lemot, form tetep dibuka biar aman
+                btnSubmit.disabled = false;
+                textBtn.innerHTML = `Daftar & Bayar <svg class="w-5 h-5 inline" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>`;
+            });
+
 
         function toggleLainnya() {
             const select = document.getElementById('kesibukan');
@@ -191,17 +206,15 @@
         form.addEventListener('submit', e => {
             e.preventDefault();
             
-            const originalBtnText = btnSubmit.innerHTML;
             btnSubmit.disabled = true;
-            btnSubmit.innerHTML = `
-                <svg class="animate-spin -ml-1 mr-2 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg>
+            textBtn.innerHTML = `
+                <svg class="animate-spin -ml-1 mr-2 h-5 w-5 text-white inline" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg>
                 Memproses...`;
 
             fetch(scriptURL, { method: 'POST', body: new FormData(form)})
             .then(response => response.json())
             .then(result => {
                 if (result.result === 'success') {
-                    
                     window.open(linkWinme, "_blank");
 
                     formContainer.innerHTML = `
@@ -234,14 +247,10 @@
                     document.getElementById('btn-sudah-bayar').addEventListener('click', function() {
                         Swal.fire({
                             title: 'Mantap Bos! 🎉',
-                            text: 'Pembayaran lu lagi nunggu konfirmasi. E-Tiket bakal dikirim ke email lu sebentar lagi (Cek folder Spam juga ya).',
+                            text: 'Pembayaran lu lagi nunggu konfirmasi. E-Tiket bakal dikirim ke email lu sebentar lagi.',
                             icon: 'success',
                             confirmButtonColor: '#1A1A1A',
-                            confirmButtonText: 'Oke, Mengerti',
-                            background: '#ffffff',
-                            customClass: {
-                                confirmButton: 'rounded-xl px-6 py-3 font-bold'
-                            }
+                            confirmButtonText: 'Oke, Mengerti'
                         });
 
                         this.innerHTML = "Verifikasi Sedang Berjalan...";
@@ -259,7 +268,7 @@
                         confirmButtonText: 'Coba Lagi'
                     });
                     btnSubmit.disabled = false;
-                    btnSubmit.innerHTML = originalBtnText;
+                    textBtn.innerHTML = `Daftar & Bayar <svg class="w-5 h-5 inline" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>`;
                 }
             })
             .catch(error => {
@@ -271,7 +280,7 @@
                     confirmButtonText: 'Tutup'
                 });
                 btnSubmit.disabled = false;
-                btnSubmit.innerHTML = originalBtnText;
+                textBtn.innerHTML = `Daftar & Bayar <svg class="w-5 h-5 inline" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>`;
             });
         });
     </script>
