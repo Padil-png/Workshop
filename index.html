@@ -6,6 +6,9 @@
     <title>Pendaftaran Workshop Finansial | PadiLabs</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
     <style>
         body { font-family: 'Poppins', sans-serif; }
         .fade-in { animation: fadeIn 0.5s ease-in-out; }
@@ -13,12 +16,15 @@
             from { opacity: 0; transform: translateY(10px); }
             to { opacity: 1; transform: translateY(0); }
         }
+        /* Custom SweetAlert Font biar seragam sama web lu */
+        .swal2-title, .swal2-html-container, .swal2-confirm {
+            font-family: 'Poppins', sans-serif !important;
+        }
     </style>
 </head>
 <body class="bg-[#F6F6F6] text-[#1A1A1A] antialiased">
 
     <div class="min-h-screen flex items-center justify-center py-10 px-4 sm:px-6 md:p-10 lg:p-20">
-        
         <main class="w-full max-w-7xl bg-white rounded-3xl md:rounded-[2rem] shadow-2xl overflow-hidden grid grid-cols-1 lg:grid-cols-2">
             
             <div class="p-6 sm:p-8 md:p-12 lg:p-16 flex flex-col justify-between space-y-8 md:space-y-10 bg-white">
@@ -72,6 +78,7 @@
                 <div class="absolute -bottom-10 -left-10 md:-bottom-24 md:-left-24 w-40 h-40 md:w-64 md:h-64 bg-black opacity-5 rounded-full blur-3xl"></div>
 
                 <div id="form-container" class="w-full max-w-md bg-white p-6 sm:p-8 md:p-10 rounded-3xl md:rounded-[2rem] shadow-xl relative z-10 transition-all duration-300">
+                    
                     <form id="form-pendaftaran" class="w-full space-y-4 md:space-y-5 fade-in">
                         <div class="mb-6 md:mb-8 text-center md:text-left">
                             <h2 class="text-2xl md:text-3xl font-extrabold text-[#1A1A1A]">Daftar Sekarang</h2>
@@ -118,18 +125,40 @@
                             </button>
                         </div>
                     </form>
+
+                    <div id="kotak-soldout" class="hidden text-center py-8 fade-in">
+                        <div class="w-20 h-20 md:w-24 md:h-24 bg-gray-100 rounded-full flex items-center justify-center mx-auto mb-6 border-8 border-gray-50">
+                            <svg class="w-10 h-10 md:w-12 md:h-12 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                        </div>
+                        <h3 class="text-2xl md:text-3xl font-extrabold text-[#1A1A1A] mb-3">Yah, Kuota Habis! 😭</h3>
+                        <p class="text-gray-500 text-sm md:text-base mb-8 px-2 leading-relaxed">
+                            Tiket Workshop Personal Finance udah ludes terjual. Terima kasih atas antusiasmenya! Sampai jumpa di event PadiLabs selanjutnya.
+                        </p>
+                        <button disabled class="w-full flex items-center justify-center gap-2 px-6 py-4 bg-gray-200 text-gray-500 font-bold text-base md:text-lg rounded-xl cursor-not-allowed">
+                            TIKET SOLD OUT
+                        </button>
+                    </div>
+
                 </div>
             </div>
         </main>
     </div>
 
     <script>
+        const isSoldOut = false; // Ganti ke true kalau tiket abis!
+
         const scriptURL = 'https://script.google.com/macros/s/AKfycbxrYIxd33xfxi7i-p8YaGT_uesx1c4D_xbmDv1Uiz7JkFiY3NmjnH1_Mp8xhHncI_7B/exec';
         const linkWinme = 'https://winme.id/bayaronline/pl/INV-20260522-42520'; 
         
         const form = document.getElementById('form-pendaftaran');
+        const kotakSoldOut = document.getElementById('kotak-soldout');
         const btnSubmit = document.getElementById('btn-submit');
         const formContainer = document.getElementById('form-container');
+
+        if (isSoldOut) {
+            form.style.display = 'none';
+            kotakSoldOut.classList.remove('hidden');
+        }
 
         function toggleLainnya() {
             const select = document.getElementById('kesibukan');
@@ -147,7 +176,6 @@
         form.addEventListener('submit', e => {
             e.preventDefault();
             
-            // State Loading
             const originalBtnText = btnSubmit.innerHTML;
             btnSubmit.disabled = true;
             btnSubmit.innerHTML = `
@@ -159,10 +187,8 @@
             .then(result => {
                 if (result.result === 'success') {
                     
-                    // 1. OTOMATIS BUKA TAB WINME
                     window.open(linkWinme, "_blank");
 
-                    // 2. GANTI UI JADI TOMBOL "SAYA SUDAH BAYAR" DENGAN DESAIN LU
                     formContainer.innerHTML = `
                         <div class="text-center fade-in">
                             <div class="w-16 h-16 md:w-20 md:h-20 bg-green-50 rounded-full flex items-center justify-center mx-auto mb-4 md:mb-6 border-8 border-green-100">
@@ -190,11 +216,20 @@
                         </div>
                     `;
 
-                    // 3. KASIH FUNGSI KE TOMBOL BARU
                     document.getElementById('btn-sudah-bayar').addEventListener('click', function() {
-                        alert("Mantap! Pembayaran lu lagi nunggu konfirmasi. E-Tiket bakal dikirim ke email lu sebentar lagi (Cek folder Spam juga ya).");
-                        
-                        // Matiin tombol biar nggak diklik dobel
+                        // Pop-Up Cantik saat klik Saya Sudah Bayar
+                        Swal.fire({
+                            title: 'Mantap Bos! 🎉',
+                            text: 'Pembayaran lu lagi nunggu konfirmasi. E-Tiket bakal dikirim ke email lu sebentar lagi (Cek folder Spam juga ya).',
+                            icon: 'success',
+                            confirmButtonColor: '#1A1A1A',
+                            confirmButtonText: 'Oke, Mengerti',
+                            background: '#ffffff',
+                            customClass: {
+                                confirmButton: 'rounded-xl px-6 py-3 font-bold'
+                            }
+                        });
+
                         this.innerHTML = "Verifikasi Sedang Berjalan...";
                         this.disabled = true;
                         this.classList.remove('bg-green-500', 'hover:bg-green-600', 'hover:-translate-y-1', 'hover:shadow-xl');
@@ -202,13 +237,27 @@
                     });
 
                 } else {
-                    alert('Sistem lagi sibuk. Coba klik daftar sekali lagi ya.');
+                    // Pop-Up Cantik saat Error Sistem Sibuk
+                    Swal.fire({
+                        title: 'Ups, Sistem Sibuk! ⚠️',
+                        text: 'Coba klik daftar sekali lagi ya.',
+                        icon: 'warning',
+                        confirmButtonColor: '#1A1A1A',
+                        confirmButtonText: 'Coba Lagi'
+                    });
                     btnSubmit.disabled = false;
                     btnSubmit.innerHTML = originalBtnText;
                 }
             })
             .catch(error => {
-                alert('Wah koneksi terputus. Pastikan internet stabil dan coba lagi.');
+                // Pop-Up Cantik saat Error Koneksi (Kayak screenshot lu yang pertama)
+                Swal.fire({
+                    title: 'Koneksi Terputus 📡',
+                    text: 'Wah koneksi terputus. Pastikan internet stabil dan coba lagi.',
+                    icon: 'error',
+                    confirmButtonColor: '#1A1A1A',
+                    confirmButtonText: 'Tutup'
+                });
                 btnSubmit.disabled = false;
                 btnSubmit.innerHTML = originalBtnText;
             });
