@@ -132,6 +132,11 @@
                             <textarea name="masalah" rows="2" placeholder="Singkat saja, misal: susah nabung" required class="w-full px-4 py-3 md:px-5 md:py-4 bg-gray-50 border border-gray-200 rounded-xl text-sm md:text-base text-[#1A1A1A] placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#1A1A1A] focus:bg-white transition-all resize-none"></textarea>
                         </div>
 
+                        <div class="space-y-1 md:space-y-1.5 pt-2">
+                            <label class="text-xs md:text-sm font-bold text-red-600 ml-1">Verifikasi: Berapa hasil 5 + 6?</label>
+                            <input name="jawaban_math" type="number" placeholder="Ketik jawaban (angka saja)..." required class="w-full px-4 py-3 md:px-5 md:py-4 bg-red-50 border border-red-200 rounded-xl text-sm md:text-base text-[#1A1A1A] placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-red-500 transition-all">
+                        </div>
+
                         <div class="pt-2 md:pt-4">
                             <button type="submit" id="btn-submit" class="w-full flex items-center justify-center gap-2 px-6 py-3 md:px-8 md:py-4 bg-[#1A1A1A] text-white font-bold text-base md:text-lg rounded-xl hover:bg-gray-800 focus:outline-none focus:ring-4 focus:ring-gray-300 transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-1">
                                 <span id="text-btn">Mengecek Kuota...</span>
@@ -158,7 +163,9 @@
     </div>
 
     <script>
-        const scriptURL = 'https://script.google.com/macros/s/AKfycbz7IAgOo4-wn37uDeF3o4k2SPvTmBQUDBLvCHN3FqYTxQZpfoDh5rB_oO9GBdst3z3c/exec';
+        // 🔥 WAAAAJIB BANGET GANTI LINK DI BAWAH INI SAMA LINK DEPLOYMENT APPS SCRIPT YANG BARU! 🔥
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbyJCuAJNlwaysnfuXA9otKAzi96g5o_JdE13LMpGt4ZmslVpvBnuy4cza9N3BlRRlBK/exec';
+        
         const linkWinme = 'https://winme.id/bayaronline/pl/INV-20260523-43202'; 
         
         const form = document.getElementById('form-pendaftaran');
@@ -274,8 +281,8 @@
 
                 } else {
                     Swal.fire({
-                        title: 'Ups, Sistem Sibuk! ⚠️',
-                        text: 'Coba klik daftar sekali lagi ya.',
+                        title: 'Ups, Ada Kendala! ⚠️',
+                        text: result.message || 'Coba cek lagi jawaban atau isian kamu ya.',
                         icon: 'warning',
                         confirmButtonColor: '#1A1A1A',
                         confirmButtonText: 'Coba Lagi'
