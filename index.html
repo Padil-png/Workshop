@@ -8,6 +8,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
+    <script src="https://www.google.com/recaptcha/api.js?render=PASTE_SITE_KEY_RECAPTCHA_LU_DISINI"></script>
+
     <style>
         body { font-family: 'Poppins', sans-serif; }
         .fade-in { animation: fadeIn 0.5s ease-in-out; }
@@ -28,9 +30,11 @@
             <div class="p-6 sm:p-8 md:p-12 lg:p-16 flex flex-col justify-between space-y-8 md:space-y-10 bg-white">
                 <div class="space-y-4 md:space-y-6">
                     <span class="inline-block px-3 py-1 bg-yellow-100 text-[#D8A607] font-bold text-[10px] md:text-xs tracking-widest uppercase rounded-full">Global Bridge Academy</span>
+                    
                     <h1 class="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-extrabold leading-tight tracking-tight text-[#1A1A1A]">
                         Track Your Spending, Start Your Trending
                     </h1>
+                    
                     <p class="text-base sm:text-lg text-[#555555] leading-relaxed">
                         Buruan! daftar sekarang agar gaji lu nggak cuma numpang lewat dan lu bisa stop kebiasaan boncos tiap akhir bulan!
                     </p>
@@ -46,6 +50,7 @@
                             <p class="font-extrabold text-xl md:text-2xl text-[#1A1A1A]">Rp. 100.000</p>
                         </div>
                     </div>
+
                     <div class="flex items-center gap-4 md:gap-5">
                         <div class="p-3 md:p-4 rounded-xl md:rounded-2xl bg-gray-50 border border-gray-100 shadow-sm shrink-0">
                             <svg class="w-5 h-5 md:w-6 md:h-6 text-[#1A1A1A]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 00-2 2z"></path></svg>
@@ -54,6 +59,32 @@
                             <p class="text-xs md:text-sm text-gray-500 font-medium">Waktu Pelaksanaan</p>
                             <p class="font-bold text-sm md:text-base text-[#1A1A1A]">06 Juni 2026<br><span class="font-normal text-gray-600">09.00 - 13.00 WIB</span></p>
                         </div>
+                    </div>
+                    
+                    <div class="flex items-center gap-4 md:gap-5">
+                        <div class="p-3 md:p-4 rounded-xl md:rounded-2xl bg-gray-50 border border-gray-100 shadow-sm shrink-0">
+                            <svg class="w-5 h-5 md:w-6 md:h-6 text-[#1A1A1A]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                        </div>
+                        <div>
+                            <p class="text-xs md:text-sm text-gray-500 font-medium">Lokasi Workshop</p>
+                            <p class="font-bold text-sm md:text-base text-[#1A1A1A]">Glowork Space<br><span class="font-normal text-gray-600">Jakarta Selatan</span></p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="pt-6 border-t border-gray-100">
+                    <div class="mb-5">
+                        <p class="text-xs md:text-sm text-gray-500 font-semibold mb-1">Speaker Utama</p>
+                        <p class="font-bold text-base text-[#1A1A1A]">Ka David Johan <span class="font-normal text-gray-600 text-sm block">Founder & Product Wallet Ya</span></p>
+                    </div>
+                    <div>
+                        <p class="text-xs md:text-sm text-gray-500 font-semibold mb-3">Yang Kamu Dapatkan:</p>
+                        <ul class="space-y-2 text-sm text-[#1A1A1A] font-medium">
+                            <li class="flex items-center gap-2"><svg class="w-5 h-5 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path></svg> Financial Mindset</li>
+                            <li class="flex items-center gap-2"><svg class="w-5 h-5 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path></svg> Blueprint Praktis Atur Cashflow Bulanan</li>
+                            <li class="flex items-center gap-2"><svg class="w-5 h-5 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path></svg> Premium WalletYA 1 Bulan</li>
+                            <li class="flex items-center gap-2"><svg class="w-5 h-5 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path></svg> Free Lunch</li>
+                        </ul>
                     </div>
                 </div>
             </div>
@@ -105,8 +136,8 @@
                         </div>
 
                         <div class="pt-2 md:pt-4">
-                            <button type="submit" id="btn-submit" class="w-full flex items-center justify-center gap-2 px-6 py-3 md:px-8 md:py-4 bg-[#1A1A1A] text-white font-bold text-base md:text-lg rounded-xl hover:bg-gray-800 focus:outline-none focus:ring-4 focus:ring-gray-300 transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-1" disabled>
-                                <span id="text-btn">Mengecek Kuota...</span>
+                            <button type="submit" id="btn-submit" class="w-full flex items-center justify-center gap-2 px-6 py-3 md:px-8 md:py-4 bg-[#1A1A1A] text-white font-bold text-base md:text-lg rounded-xl hover:bg-gray-800 transition-all shadow-lg transform hover:-translate-y-1" disabled>
+                                <span id="text-btn">Mengecek Proteksi Kuota...</span>
                             </button>
                         </div>
                     </form>
@@ -127,15 +158,15 @@
                         <h3 class="text-2xl font-extrabold text-[#1A1A1A] mb-2">Satu Langkah Lagi!</h3>
                         <p class="text-gray-500 text-sm mb-6">Selesaikan pembayaran di tab yang baru saja terbuka.</p>
                         
-                        <div class="bg-yellow-50 border border-yellow-200 p-4 rounded-xl text-left mb-6 relative overflow-hidden">
+                        <div class="bg-yellow-50 border border-yellow-200 p-4 rounded-xl text-left mb-6 relative overflow-hidden text-sm text-gray-700">
                             <div class="absolute top-0 left-0 w-1 h-full bg-[#D8A607]"></div>
-                            <p class="font-bold text-[#1A1A1A] text-sm mb-2 flex items-center gap-1.5">
+                            <p class="font-bold text-[#1A1A1A] mb-2 flex items-center gap-1.5">
                                 <svg class="w-4 h-4 text-[#D8A607]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
                                 Instruksi Penting
                             </p>
-                            <ul class="list-disc pl-4 space-y-1 text-sm text-gray-700">
+                            <ul class="list-disc pl-4 space-y-1">
                                 <li>Jika tab kasir tidak terbuka, <a id="link-payment-fallback" href="#" target="_blank" class="font-bold text-blue-600 underline">klik di sini</a>.</li>
-                                <li>Setelah transfer, <b>klik tombol di bawah</b> untuk validasi sistem.</li>
+                                <li>Setelah transfer, <b>wajib klik tombol di bawah</b> untuk konfirmasi tiket.</li>
                             </ul>
                         </div>
                         
@@ -150,224 +181,123 @@
     </div>
 
     <script>
-        /**
-         * ------------------------------------------------------------------------
-         * PadiLabs / GBA Workshop Registration Application
-         * Architecture: State -> UI Controller -> API Service
-         * ------------------------------------------------------------------------
-         */
         class WorkshopRegistration {
             constructor() {
-                // Konfigurasi Endpoint (Ganti dengan endpoint lu)
-                this.API_URL = 'https://script.google.com/macros/s/AKfycbz-R4Zf7d4BorwSL3FVd9gapADu7eQ5EJpKHLX1SM3qXYoANywjJJAmnVJdV8TEMjpv/exec';
+                // 🚨 PASTE LINK DEPLOYMENT GOOGLE APPS SCRIPT BARU DI SINI 🚨
+                this.API_URL = 'https://script.google.com/macros/s/AKfycbwINRKNnE8Tf_9b7FrB12iKlXOKvNw20ur_hCk8uHib3gqLWVoEW60SQ-1vhOOfPNDj/exec';
                 
-                // State Management
-                this.state = {
-                    ticketId: null,
-                    paymentUrl: null,
-                    isSubmitting: false
-                };
+                // 🚨 PASTE SITE KEY RECAPTCHA LU DI SINI 🚨
+                this.RECAPTCHA_SITE_KEY = '6LdOnvosAAAAAF7d2kT11AXQZEjFHuwDQIgVJlyG';
 
-                // DOM Elements caching
+                this.state = { ticketId: null, paymentUrl: null, dynamicToken: null, isSubmitting: false };
                 this.ui = {
-                    form: document.getElementById('form-pendaftaran'),
-                    viewSoldOut: document.getElementById('view-soldout'),
-                    viewPayment: document.getElementById('view-payment'),
-                    btnSubmit: document.getElementById('btn-submit'),
-                    textBtnSubmit: document.getElementById('text-btn'),
-                    btnVerify: document.getElementById('btn-verify-payment'),
-                    textBtnVerify: document.getElementById('text-btn-verify'),
-                    inputEmail: document.getElementById('input-email'),
-                    errorEmail: document.getElementById('error-email'),
-                    selectKesibukan: document.getElementById('input-kesibukan'),
-                    inputLainnya: document.getElementById('input-lainnya'),
-                    linkPaymentFallback: document.getElementById('link-payment-fallback')
+                    form: document.getElementById('form-pendaftaran'), viewSoldOut: document.getElementById('view-soldout'), viewPayment: document.getElementById('view-payment'),
+                    btnSubmit: document.getElementById('btn-submit'), textBtnSubmit: document.getElementById('text-btn'), btnVerify: document.getElementById('btn-verify-payment'),
+                    textBtnVerify: document.getElementById('text-btn-verify'), inputEmail: document.getElementById('input-email'), errorEmail: document.getElementById('error-email'),
+                    selectKesibukan: document.getElementById('input-kesibukan'), inputLainnya: document.getElementById('input-lainnya'), linkPaymentFallback: document.getElementById('link-payment-fallback')
                 };
-
                 this.init();
             }
 
-            async init() {
-                this.bindEvents();
-                await this.checkInitialQuota();
-            }
+            async init() { this.bindEvents(); await this.loadPreFlightData(); }
 
-            // ==========================================
-            // EVENT BINDINGS
-            // ==========================================
             bindEvents() {
                 this.ui.form.addEventListener('submit', (e) => this.handleFormSubmit(e));
                 this.ui.btnVerify.addEventListener('click', () => this.verifyPaymentStatus());
-                
-                // Real-time Email Validation
                 this.ui.inputEmail.addEventListener('input', (e) => {
-                    const pattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-                    const isValid = e.target.value === "" || pattern.test(e.target.value);
-                    
-                    if (isValid) {
-                        this.ui.errorEmail.classList.add('hidden');
-                        e.target.classList.replace('border-red-500', 'border-gray-200');
-                        this.ui.btnSubmit.disabled = false;
-                    } else {
-                        this.ui.errorEmail.classList.remove('hidden');
-                        e.target.classList.replace('border-gray-200', 'border-red-500');
-                        this.ui.btnSubmit.disabled = true;
-                    }
+                    const isValid = e.target.value === "" || /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(e.target.value);
+                    this.ui.errorEmail.classList.toggle('hidden', isValid);
+                    this.ui.btnSubmit.disabled = !isValid;
                 });
-
-                // Dropdown Toggle
                 this.ui.selectKesibukan.addEventListener('change', (e) => {
-                    if (e.target.value === 'Lainnya') {
-                        this.ui.inputLainnya.classList.remove('hidden');
-                        this.ui.inputLainnya.setAttribute('required', 'true');
-                    } else {
-                        this.ui.inputLainnya.classList.add('hidden');
-                        this.ui.inputLainnya.removeAttribute('required');
-                        this.ui.inputLainnya.value = '';
-                    }
+                    const isLainnya = e.target.value === 'Lainnya';
+                    this.ui.inputLainnya.classList.toggle('hidden', !isLainnya);
+                    if (isLainnya) this.ui.inputLainnya.setAttribute('required', 'true');
+                    else this.ui.inputLainnya.removeAttribute('required');
                 });
             }
 
-            // ==========================================
-            // API CALLS & BUSINESS LOGIC
-            // ==========================================
-            
-            // 1. Check Quota (UX purpose only, backend still secures the POST request)
-            async checkInitialQuota() {
+            // AMBIL STATUS KUOTA + DYNAMIC TOKEN DARI SERVER GOOGLE
+            async loadPreFlightData() {
                 try {
-                    const response = await fetch(this.API_URL + "?action=check_quota");
+                    const response = await fetch(this.API_URL);
                     const data = await response.json();
-                    
-                    if (data.status === 'habis') {
-                        this.switchView('soldout');
-                    } else {
+                    if (data.status === 'habis') { this.switchView('soldout'); } 
+                    else {
+                        this.state.dynamicToken = data.dynamicToken; // Kunci rahasia tersimpan di state
                         this.ui.btnSubmit.disabled = false;
-                        this.ui.textBtnSubmit.innerHTML = 'Daftar & Bayar <svg class="w-5 h-5 inline" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>';
+                        this.ui.textBtnSubmit.innerHTML = 'Daftar & Bayar ➡️';
                     }
                 } catch (error) {
-                    console.error("Gagal load kuota awal:", error);
-                    // Fail open, biarkan user nyoba daftar (backend akan ngeblok kalau emang habis)
                     this.ui.btnSubmit.disabled = false;
                     this.ui.textBtnSubmit.innerHTML = 'Daftar & Bayar';
                 }
             }
 
-            // 2. Handle Form Submission
             async handleFormSubmit(e) {
                 e.preventDefault();
                 if (this.state.isSubmitting) return;
+                this.setLoadingState(true, this.ui.btnSubmit, this.ui.textBtnSubmit, "Mengamankan Koneksi AI...");
 
-                this.setLoadingState(true, this.ui.btnSubmit, this.ui.textBtnSubmit, "Memproses...");
-                const formData = new FormData(this.ui.form);
-                formData.append('action', 'register');
+                // Pemicu Validasi Gaib Google reCAPTCHA v3
+                grecaptcha.ready(() => {
+                    grecaptcha.execute(this.RECAPTCHA_SITE_KEY, {action: 'submit'}).then(async (token) => {
+                        const formData = new FormData(this.ui.form);
+                        formData.append('action', 'register');
+                        formData.append('dynamic_token', this.state.dynamicToken); // Inject Kunci Lapis 1
+                        formData.append('recaptcha_token', token); // Inject Kunci Lapis 2
 
-                try {
-                    const response = await fetch(this.API_URL, { method: 'POST', body: formData });
-                    const result = await response.json();
-
-                    if (result.result === 'success') {
-                        // Backend WAJIB mereturn { result: "success", paymentUrl: "...", ticketId: "..." }
-                        this.state.paymentUrl = result.paymentUrl || '#'; 
-                        this.state.ticketId = result.ticketId;
-                        
-                        this.ui.linkPaymentFallback.href = this.state.paymentUrl;
-                        this.handleSuccessRegistration();
-                    } else {
-                        throw new Error(result.message || "Gagal menyimpan data.");
-                    }
-                } catch (error) {
-                    this.showErrorAlert(error.message);
-                } finally {
-                    this.setLoadingState(false, this.ui.btnSubmit, this.ui.textBtnSubmit, "Daftar & Bayar");
-                }
+                        try {
+                            const response = await fetch(this.API_URL, { method: 'POST', body: formData });
+                            const result = await response.json();
+                            if (result.result === 'success') {
+                                this.state.paymentUrl = result.paymentUrl;
+                                this.state.ticketId = result.ticketId;
+                                this.ui.linkPaymentFallback.href = result.paymentUrl;
+                                this.handleSuccessRegistration();
+                            } else { throw new Error(result.message || "Akses Server Ditolak."); }
+                        } catch (error) { this.showErrorAlert(error.message); } 
+                        finally { this.setLoadingState(false, this.ui.btnSubmit, this.ui.textBtnSubmit, "Daftar & Bayar"); }
+                    });
+                });
             }
 
-            // 3. Verify Payment Status (Real endpoint hit)
             async verifyPaymentStatus() {
-                this.setLoadingState(true, this.ui.btnVerify, this.ui.textBtnVerify, "Memverifikasi Server...");
-
+                this.setLoadingState(true, this.ui.btnVerify, this.ui.textBtnVerify, "Memeriksa Mutasi Bank...");
                 try {
                     const formData = new FormData();
                     formData.append('action', 'verify_payment');
                     formData.append('ticketId', this.state.ticketId);
-
                     const response = await fetch(this.API_URL, { method: 'POST', body: formData });
                     const result = await response.json();
-
-                    if (result.status === 'LUNAS') {
-                        Swal.fire('Lunas! 🎉', 'Pembayaran terverifikasi. E-Tiket telah dikirim.', 'success');
-                    } else {
-                        // Jika status masih pending dari payment gateway
-                        Swal.fire({
-                            title: 'Status: Pending ⏳',
-                            text: 'Pembayaran belum terdeteksi. Sistem butuh waktu maksimal 5 menit untuk sinkronisasi, atau pastikan transfer kamu berhasil.',
-                            icon: 'info',
-                            confirmButtonColor: '#1A1A1A'
-                        });
-                    }
-                } catch (error) {
-                    this.showErrorAlert("Gagal menghubungi server verifikasi.");
-                } finally {
-                    this.setLoadingState(false, this.ui.btnVerify, this.ui.textBtnVerify, "CEK ULANG PEMBAYARAN");
-                }
+                    if (result.status === 'LUNAS') { Swal.fire('Lunas! 🎉', 'E-Tiket resmi telah dikirim ke email lu, silakan cek folder inbox/spam.', 'success'); } 
+                    else { Swal.fire('Status: Pending ⏳', 'Pembayaran belum masuk di sistem. Tunggu max 5 menit atau pastikan transfer lu berhasil.', 'info'); }
+                } catch (error) { this.showErrorAlert("Gagal terhubung ke database server."); } 
+                finally { this.setLoadingState(false, this.ui.btnVerify, this.ui.textBtnVerify, "SAYA SUDAH BAYAR"); }
             }
 
-            // ==========================================
-            // UI HELPERS
-            // ==========================================
-            
             handleSuccessRegistration() {
                 Swal.fire({
-                    title: 'Data Tersimpan! 🎉',
-                    html: 'Satu langkah lagi! Klik tombol di bawah ini untuk buka tab kasir.',
-                    icon: 'info',
-                    confirmButtonColor: '#1A1A1A',
-                    confirmButtonText: 'Buka Pembayaran 💸',
-                    allowOutsideClick: false 
-                }).then((action) => {
-                    if (action.isConfirmed) {
-                        window.open(this.state.paymentUrl, "_blank");
-                        this.switchView('payment');
-                    }
-                });
+                    title: 'Satu Langkah Lagi! 🎉', html: 'Klik tombol di bawah untuk membuka halaman invoice pembayaran resmi.', icon: 'info',
+                    confirmButtonColor: '#1A1A1A', confirmButtonText: 'Buka Pembayaran 💸', allowOutsideClick: false
+                }).then((action) => { if (action.isConfirmed) { window.open(this.state.paymentUrl, "_blank"); this.switchView('payment'); } });
             }
 
-            switchView(viewName) {
-                this.ui.form.classList.add('hidden');
-                this.ui.viewSoldOut.classList.add('hidden');
-                this.ui.viewPayment.classList.add('hidden');
-
-                if (viewName === 'form') this.ui.form.classList.remove('hidden');
-                if (viewName === 'soldout') this.ui.viewSoldOut.classList.remove('hidden');
-                if (viewName === 'payment') this.ui.viewPayment.classList.remove('hidden');
+            switchView(v) {
+                this.ui.form.classList.toggle('hidden', v !== 'form');
+                this.ui.viewSoldOut.classList.toggle('hidden', v !== 'soldout');
+                this.ui.viewPayment.classList.toggle('hidden', v !== 'payment');
             }
 
-            setLoadingState(isLoading, button, textContainer, loadingText) {
-                this.state.isSubmitting = isLoading;
-                button.disabled = isLoading;
-                if (isLoading) {
-                    textContainer.innerHTML = `<svg class="animate-spin -ml-1 mr-2 h-5 w-5 text-white inline" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg> ${loadingText}`;
-                    button.classList.add('opacity-75', 'cursor-wait');
-                } else {
-                    button.classList.remove('opacity-75', 'cursor-wait');
-                    textContainer.innerHTML = loadingText;
-                }
+            setLoadingState(isLoading, button, text, msg) {
+                this.state.isSubmitting = isLoading; button.disabled = isLoading;
+                button.classList.toggle('opacity-75', isLoading);
+                text.innerHTML = isLoading ? `<svg class="animate-spin -ml-1 mr-2 h-5 w-5 text-white inline" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg> ${msg}` : msg;
             }
 
-            showErrorAlert(msg) {
-                Swal.fire({
-                    title: 'Ups, Ada Kendala! ⚠️',
-                    text: msg,
-                    icon: 'error',
-                    confirmButtonColor: '#1A1A1A'
-                });
-            }
+            showErrorAlert(msg) { Swal.fire({ title: 'Akses Ditolak! ⚠️', text: msg, icon: 'error', confirmButtonColor: '#1A1A1A' }); }
         }
-
-        // Initialize App
-        document.addEventListener('DOMContentLoaded', () => {
-            new WorkshopRegistration();
-        });
+        document.addEventListener('DOMContentLoaded', () => { new WorkshopRegistration(); });
     </script>
 </body>
 </html>
