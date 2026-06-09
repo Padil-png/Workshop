@@ -126,22 +126,6 @@
                             <input name="whatsapp" type="tel" pattern="[0-9]+" minlength="9" placeholder="08123xxxx" required class="w-full px-4 py-3 md:px-5 md:py-4 bg-gray-50 border border-gray-200 rounded-xl text-sm md:text-base text-[#1A1A1A] placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#1A1A1A]">
                         </div>
 
-                        <div id="form-peserta-2" class="hidden space-y-4 p-4 mt-2 bg-yellow-50 border-l-4 border-[#D8A607] rounded-xl fade-in">
-                            <p class="font-bold text-sm md:text-base text-[#1A1A1A]">Data Peserta Ke-2</p>
-                            <div class="space-y-1 md:space-y-1.5">
-                                <label class="text-xs md:text-sm font-semibold text-[#1A1A1A] ml-1">Nama Lengkap (Peserta 2)</label>
-                                <input id="input-nama-2" name="nama_2" type="text" placeholder="Contoh: Jane Doe" class="w-full px-4 py-3 bg-white border border-yellow-200 rounded-xl text-sm text-[#1A1A1A] placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#1A1A1A]">
-                            </div>
-                            <div class="space-y-1 md:space-y-1.5">
-                                <label class="text-xs md:text-sm font-semibold text-[#1A1A1A] ml-1">Email Aktif (Peserta 2)</label>
-                                <input id="input-email-2" name="email_2" type="email" placeholder="jane@email.com" class="w-full px-4 py-3 bg-white border border-yellow-200 rounded-xl text-sm text-[#1A1A1A] placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#1A1A1A]">
-                            </div>
-                            <div class="space-y-1 md:space-y-1.5">
-                                <label class="text-xs md:text-sm font-semibold text-[#1A1A1A] ml-1">No. WhatsApp (Peserta 2)</label>
-                                <input id="input-wa-2" name="wa_2" type="tel" pattern="[0-9]+" minlength="9" placeholder="0856xxxx" class="w-full px-4 py-3 bg-white border border-yellow-200 rounded-xl text-sm text-[#1A1A1A] placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#1A1A1A]">
-                            </div>
-                        </div>
-
                         <div class="space-y-1 md:space-y-1.5">
                             <label class="text-xs md:text-sm font-semibold text-[#1A1A1A] ml-1">Kesibukan Saat Ini</label>
                             <select id="input-kesibukan" name="kesibukan" required class="w-full px-4 py-3 md:px-5 md:py-4 bg-gray-50 border border-gray-200 rounded-xl text-sm md:text-base text-[#1A1A1A] appearance-none focus:outline-none focus:ring-2 focus:ring-[#1A1A1A] cursor-pointer">
@@ -160,7 +144,41 @@
                             <textarea name="masalah" rows="2" placeholder="Singkat saja, misal: susah nabung" required class="w-full px-4 py-3 md:px-5 md:py-4 bg-gray-50 border border-gray-200 rounded-xl text-sm md:text-base text-[#1A1A1A] placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#1A1A1A] resize-none"></textarea>
                         </div>
 
-                        <div class="space-y-1 md:space-y-1.5">
+                        <div id="form-peserta-2" class="hidden space-y-4 p-4 mt-2 bg-yellow-50 border-l-4 border-[#D8A607] rounded-xl fade-in">
+                            <p class="font-bold text-sm md:text-base text-[#1A1A1A]">Data Peserta Ke-2</p>
+                            <div class="space-y-1 md:space-y-1.5">
+                                <label class="text-xs md:text-sm font-semibold text-[#1A1A1A] ml-1">Nama Lengkap (Peserta 2)</label>
+                                <input id="input-nama-2" name="nama_2" type="text" placeholder="Contoh: Jane Doe" class="w-full px-4 py-3 bg-white border border-yellow-200 rounded-xl text-sm text-[#1A1A1A] placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#1A1A1A]">
+                            </div>
+                            <div class="space-y-1 md:space-y-1.5">
+                                <label class="text-xs md:text-sm font-semibold text-[#1A1A1A] ml-1">Email Aktif (Peserta 2)</label>
+                                <input id="input-email-2" name="email_2" type="email" placeholder="jane@email.com" class="w-full px-4 py-3 bg-white border border-yellow-200 rounded-xl text-sm text-[#1A1A1A] placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#1A1A1A]">
+                            </div>
+                            <div class="space-y-1 md:space-y-1.5">
+                                <label class="text-xs md:text-sm font-semibold text-[#1A1A1A] ml-1">No. WhatsApp (Peserta 2)</label>
+                                <input id="input-wa-2" name="wa_2" type="tel" pattern="[0-9]+" minlength="9" placeholder="0856xxxx" class="w-full px-4 py-3 bg-white border border-yellow-200 rounded-xl text-sm text-[#1A1A1A] placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#1A1A1A]">
+                            </div>
+
+                            <div class="space-y-1 md:space-y-1.5 pt-2">
+                                <label class="text-xs md:text-sm font-semibold text-[#1A1A1A] ml-1">Kesibukan Saat Ini (Peserta 2)</label>
+                                <select id="input-kesibukan-2" name="kesibukan_2" class="w-full px-4 py-3 bg-white border border-yellow-200 rounded-xl text-sm text-[#1A1A1A] appearance-none focus:outline-none focus:ring-2 focus:ring-[#1A1A1A] cursor-pointer">
+                                    <option value="" disabled selected class="text-gray-400">Pilih...</option>
+                                    <option value="Mahasiswa">Mahasiswa</option>
+                                    <option value="Karyawan">Karyawan</option>
+                                    <option value="Wirausaha">Wirausaha / Freelancer</option>
+                                    <option value="Ibu Rumah Tangga">Ibu Rumah Tangga</option>
+                                    <option value="Lainnya">Lainnya</option>
+                                </select>
+                                <input type="text" id="input-lainnya-2" name="kesibukan_lainnya_2" placeholder="Sebutkan kesibukanmu..." class="hidden mt-2 w-full px-4 py-3 bg-white border border-yellow-200 rounded-xl text-sm text-[#1A1A1A] focus:outline-none focus:ring-2 focus:ring-[#1A1A1A]">
+                            </div>
+    
+                            <div class="space-y-1 md:space-y-1.5">
+                                <label class="text-xs md:text-sm font-semibold text-[#1A1A1A] ml-1">Masalah Keuangan (Peserta 2)</label>
+                                <textarea id="input-masalah-2" name="masalah_2" rows="2" placeholder="Singkat saja, misal: sering boncos" class="w-full px-4 py-3 bg-white border border-yellow-200 rounded-xl text-sm text-[#1A1A1A] placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#1A1A1A] resize-none"></textarea>
+                            </div>
+                        </div>
+
+                        <div class="space-y-1 md:space-y-1.5 mt-4">
                             <label class="text-xs md:text-sm font-semibold text-[#1A1A1A] ml-1">Metode Pembayaran</label>
                             <select name="metode_pembayaran" id="input-metode" required class="w-full px-4 py-3 md:px-5 md:py-4 bg-gray-50 border border-gray-200 rounded-xl text-sm md:text-base text-[#1A1A1A] focus:outline-none focus:ring-2 focus:ring-[#1A1A1A] cursor-pointer">
                                 <option value="" disabled selected class="text-gray-400">Pilih Metode...</option>
@@ -237,7 +255,8 @@
                     textBtnVerify: document.getElementById('text-btn-verify'), inputEmail: document.getElementById('input-email'), errorEmail: document.getElementById('error-email'),
                     selectKesibukan: document.getElementById('input-kesibukan'), inputLainnya: document.getElementById('input-lainnya'), linkPaymentFallback: document.getElementById('link-payment-fallback'),
                     selectPaket: document.getElementById('input-paket'), formPeserta2: document.getElementById('form-peserta-2'), inputNama2: document.getElementById('input-nama-2'), 
-                    inputEmail2: document.getElementById('input-email-2'), inputWa2: document.getElementById('input-wa-2')
+                    inputEmail2: document.getElementById('input-email-2'), inputWa2: document.getElementById('input-wa-2'),
+                    selectKesibukan2: document.getElementById('input-kesibukan-2'), inputLainnya2: document.getElementById('input-lainnya-2'), inputMasalah2: document.getElementById('input-masalah-2')
                 };
                 this.init();
             }
@@ -251,12 +270,10 @@
                     const isValid = e.target.value === "" || /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(e.target.value);
                     this.ui.errorEmail.classList.toggle('hidden', isValid);
                     
-                    // Enable submit kalau email valid & metode pembayaran udah dipilih
                     const isMetodeSelected = document.getElementById('input-metode').value !== "";
                     this.ui.btnSubmit.disabled = !isValid || !isMetodeSelected;
                 });
                 
-                // Tambahan validasi kalau dropdown metode diklik
                 document.getElementById('input-metode').addEventListener('change', () => {
                     const isValidEmail = this.ui.inputEmail.value === "" || /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(this.ui.inputEmail.value);
                     this.ui.btnSubmit.disabled = !isValidEmail || document.getElementById('input-metode').value === "";
@@ -269,6 +286,16 @@
                     else this.ui.inputLainnya.removeAttribute('required');
                 });
 
+                this.ui.selectKesibukan2.addEventListener('change', (e) => {
+                    const isLainnya = e.target.value === 'Lainnya';
+                    this.ui.inputLainnya2.classList.toggle('hidden', !isLainnya);
+                    if (isLainnya && this.ui.selectPaket.value === 'bundling') {
+                        this.ui.inputLainnya2.setAttribute('required', 'true');
+                    } else {
+                        this.ui.inputLainnya2.removeAttribute('required');
+                    }
+                });
+
                 this.ui.selectPaket.addEventListener('change', (e) => {
                     const isBundling = e.target.value === 'bundling';
                     this.ui.formPeserta2.classList.toggle('hidden', !isBundling);
@@ -276,13 +303,23 @@
                         this.ui.inputNama2.setAttribute('required', 'true');
                         this.ui.inputEmail2.setAttribute('required', 'true');
                         this.ui.inputWa2.setAttribute('required', 'true');
+                        this.ui.selectKesibukan2.setAttribute('required', 'true');
+                        this.ui.inputMasalah2.setAttribute('required', 'true');
                     } else {
                         this.ui.inputNama2.removeAttribute('required');
                         this.ui.inputEmail2.removeAttribute('required');
                         this.ui.inputWa2.removeAttribute('required');
+                        this.ui.selectKesibukan2.removeAttribute('required');
+                        this.ui.inputMasalah2.removeAttribute('required');
+                        this.ui.inputLainnya2.removeAttribute('required');
+                        
                         this.ui.inputNama2.value = '';
                         this.ui.inputEmail2.value = '';
                         this.ui.inputWa2.value = '';
+                        this.ui.selectKesibukan2.value = '';
+                        this.ui.inputMasalah2.value = '';
+                        this.ui.inputLainnya2.value = '';
+                        this.ui.inputLainnya2.classList.add('hidden');
                     }
                 });
             }
@@ -294,7 +331,6 @@
                     if (data.status === 'habis') { this.switchView('soldout'); } 
                     else {
                         this.state.dynamicToken = data.dynamicToken;
-                        // Tombol dibikin disabled dulu nunggu mereka pilih bank
                         this.ui.btnSubmit.disabled = true;
                         this.ui.textBtnSubmit.innerHTML = 'Daftar & Bayar ➡️';
                     }
@@ -345,14 +381,13 @@
                 finally { this.setLoadingState(false, this.ui.btnVerify, this.ui.textBtnVerify, "SAYA SUDAH BAYAR"); }
             }
 
-            // 🟢 UPDATE LOGIKA NOTA DIGITAL SEBELUM KE HALAMAN BAYAR
             handleSuccessRegistration() {
                 const paket = this.ui.selectPaket.value;
                 const metodeSelect = document.getElementById('input-metode');
                 const metode = metodeSelect.value;
                 const namaMetodeDisplay = metodeSelect.options[metodeSelect.selectedIndex].text;
                 
-                const hargaTiket = paket === 'bundling' ? 180000 : 100000;
+                const hargaTiket = paket === 'bundling' ? 180000 : 96000;
                 const namaPaket = paket === 'bundling' ? 'Tiket Bundling (2 Orang)' : 'Tiket Reguler (1 Orang)';
                 
                 let adminFee = 0;
