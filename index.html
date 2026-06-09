@@ -47,7 +47,7 @@
                         </div>
                         <div>
                             <p class="text-xs md:text-sm text-gray-500 font-medium">Investasi Tiket</p>
-                            <p class="font-extrabold text-xl md:text-2xl text-[#1A1A1A]">Rp. 100.000</p>
+                            <p class="font-extrabold text-xl md:text-2xl text-[#1A1A1A]">Rp. 100.000 <span class="text-sm font-normal text-gray-500">/ Orang</span></p>
                         </div>
                     </div>
 
@@ -102,19 +102,43 @@
                         </div>
 
                         <div class="space-y-1 md:space-y-1.5">
-                            <label class="text-xs md:text-sm font-semibold text-[#1A1A1A] ml-1">Nama Lengkap</label>
+                            <label class="text-xs md:text-sm font-semibold text-[#1A1A1A] ml-1">Pilih Paket Tiket</label>
+                            <select id="input-paket" name="paket_tiket" required class="w-full px-4 py-3 md:px-5 md:py-4 bg-gray-50 border border-gray-200 rounded-xl text-sm md:text-base text-[#1A1A1A] focus:outline-none focus:ring-2 focus:ring-[#1A1A1A] cursor-pointer">
+                                <option value="reguler" selected>Tiket Reguler (1 Orang) - Rp 100.000</option>
+                                <option value="bundling">Tiket Bundling (2 Orang) - Rp 180.000 🔥</option>
+                            </select>
+                        </div>
+
+                        <div class="space-y-1 md:space-y-1.5">
+                            <label class="text-xs md:text-sm font-semibold text-[#1A1A1A] ml-1">Nama Lengkap (Peserta 1)</label>
                             <input name="nama" type="text" placeholder="Contoh: John Doe" required class="w-full px-4 py-3 md:px-5 md:py-4 bg-gray-50 border border-gray-200 rounded-xl text-sm md:text-base text-[#1A1A1A] placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#1A1A1A]">
                         </div>
 
                         <div class="space-y-1 md:space-y-1.5">
-                            <label class="text-xs md:text-sm font-semibold text-[#1A1A1A] ml-1">Email Aktif</label>
+                            <label class="text-xs md:text-sm font-semibold text-[#1A1A1A] ml-1">Email Aktif (Peserta 1)</label>
                             <input id="input-email" name="email" type="email" placeholder="john@email.com" required class="w-full px-4 py-3 md:px-5 md:py-4 bg-gray-50 border border-gray-200 rounded-xl text-sm md:text-base text-[#1A1A1A] placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#1A1A1A]">
                             <p id="error-email" class="hidden text-xs text-red-600 font-semibold ml-1">❌ Format email tidak valid!</p>
                         </div>
 
                         <div class="space-y-1 md:space-y-1.5">
-                            <label class="text-xs md:text-sm font-semibold text-[#1A1A1A] ml-1">No. WhatsApp</label>
+                            <label class="text-xs md:text-sm font-semibold text-[#1A1A1A] ml-1">No. WhatsApp (Peserta 1)</label>
                             <input name="whatsapp" type="tel" pattern="[0-9]+" minlength="9" placeholder="08123xxxx" required class="w-full px-4 py-3 md:px-5 md:py-4 bg-gray-50 border border-gray-200 rounded-xl text-sm md:text-base text-[#1A1A1A] placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#1A1A1A]">
+                        </div>
+
+                        <div id="form-peserta-2" class="hidden space-y-4 p-4 mt-2 bg-yellow-50 border-l-4 border-[#D8A607] rounded-xl fade-in">
+                            <p class="font-bold text-sm md:text-base text-[#1A1A1A]">Data Peserta Ke-2</p>
+                            <div class="space-y-1 md:space-y-1.5">
+                                <label class="text-xs md:text-sm font-semibold text-[#1A1A1A] ml-1">Nama Lengkap (Peserta 2)</label>
+                                <input id="input-nama-2" name="nama_2" type="text" placeholder="Contoh: Jane Doe" class="w-full px-4 py-3 bg-white border border-yellow-200 rounded-xl text-sm text-[#1A1A1A] placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#1A1A1A]">
+                            </div>
+                            <div class="space-y-1 md:space-y-1.5">
+                                <label class="text-xs md:text-sm font-semibold text-[#1A1A1A] ml-1">Email Aktif (Peserta 2)</label>
+                                <input id="input-email-2" name="email_2" type="email" placeholder="jane@email.com" class="w-full px-4 py-3 bg-white border border-yellow-200 rounded-xl text-sm text-[#1A1A1A] placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#1A1A1A]">
+                            </div>
+                            <div class="space-y-1 md:space-y-1.5">
+                                <label class="text-xs md:text-sm font-semibold text-[#1A1A1A] ml-1">No. WhatsApp (Peserta 2)</label>
+                                <input id="input-wa-2" name="wa_2" type="tel" pattern="[0-9]+" minlength="9" placeholder="0856xxxx" class="w-full px-4 py-3 bg-white border border-yellow-200 rounded-xl text-sm text-[#1A1A1A] placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#1A1A1A]">
+                            </div>
                         </div>
 
                         <div class="space-y-1 md:space-y-1.5">
@@ -133,6 +157,25 @@
                         <div class="space-y-1 md:space-y-1.5">
                             <label class="text-xs md:text-sm font-semibold text-[#1A1A1A] ml-1">Masalah Keuangan</label>
                             <textarea name="masalah" rows="2" placeholder="Singkat saja, misal: susah nabung" required class="w-full px-4 py-3 md:px-5 md:py-4 bg-gray-50 border border-gray-200 rounded-xl text-sm md:text-base text-[#1A1A1A] placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#1A1A1A] resize-none"></textarea>
+                        </div>
+
+                        <div class="space-y-1 md:space-y-1.5">
+                            <label class="text-xs md:text-sm font-semibold text-[#1A1A1A] ml-1">Metode Pembayaran</label>
+                            <select name="metode_pembayaran" id="input-metode" required class="w-full px-4 py-3 md:px-5 md:py-4 bg-gray-50 border border-gray-200 rounded-xl text-sm md:text-base text-[#1A1A1A] focus:outline-none focus:ring-2 focus:ring-[#1A1A1A] cursor-pointer">
+                                <option value="" disabled selected class="text-gray-400">Pilih Metode...</option>
+                                <optgroup label="E-Wallet & QRIS (Bebas Admin)">
+                                    <option value="qris">QRIS (Semua Bank/E-Wallet)</option>
+                                    <option value="gopay">GoPay</option>
+                                </optgroup>
+                                <optgroup label="Virtual Account (Admin Rp 4.000)">
+                                    <option value="mandiri_va">Mandiri Virtual Account</option>
+                                    <option value="bni_va">BNI Virtual Account</option>
+                                    <option value="bri_va">BRI Virtual Account</option>
+                                    <option value="bsi_va">BSI Virtual Account</option>
+                                    <option value="cimb_va">CIMB Niaga Virtual Account</option>
+                                    <option value="permata_va">Permata Virtual Account</option>
+                                </optgroup>
+                            </select>
                         </div>
 
                         <div class="pt-2 md:pt-4">
@@ -183,10 +226,7 @@
     <script>
         class WorkshopRegistration {
             constructor() {
-                // 🚨 PASTE LINK DEPLOYMENT GOOGLE APPS SCRIPT BARU DI SINI 🚨
                 this.API_URL = 'https://script.google.com/macros/s/AKfycbx7uieUYHUk4_ACOJt5a4Uay0pkrNf4al7Cqatx5rpI3N366uvCkNaXeWUIbvMBM7M0/exec';
-                
-                // 🚨 PASTE SITE KEY RECAPTCHA LU DI SINI 🚨
                 this.RECAPTCHA_SITE_KEY = '6LdOnvosAAAAAF7d2kT11AXQZEjFHuwDQIgVJlyG';
 
                 this.state = { ticketId: null, paymentUrl: null, dynamicToken: null, isSubmitting: false };
@@ -194,7 +234,9 @@
                     form: document.getElementById('form-pendaftaran'), viewSoldOut: document.getElementById('view-soldout'), viewPayment: document.getElementById('view-payment'),
                     btnSubmit: document.getElementById('btn-submit'), textBtnSubmit: document.getElementById('text-btn'), btnVerify: document.getElementById('btn-verify-payment'),
                     textBtnVerify: document.getElementById('text-btn-verify'), inputEmail: document.getElementById('input-email'), errorEmail: document.getElementById('error-email'),
-                    selectKesibukan: document.getElementById('input-kesibukan'), inputLainnya: document.getElementById('input-lainnya'), linkPaymentFallback: document.getElementById('link-payment-fallback')
+                    selectKesibukan: document.getElementById('input-kesibukan'), inputLainnya: document.getElementById('input-lainnya'), linkPaymentFallback: document.getElementById('link-payment-fallback'),
+                    selectPaket: document.getElementById('input-paket'), formPeserta2: document.getElementById('form-peserta-2'), inputNama2: document.getElementById('input-nama-2'), 
+                    inputEmail2: document.getElementById('input-email-2'), inputWa2: document.getElementById('input-wa-2')
                 };
                 this.init();
             }
@@ -207,25 +249,52 @@
                 this.ui.inputEmail.addEventListener('input', (e) => {
                     const isValid = e.target.value === "" || /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(e.target.value);
                     this.ui.errorEmail.classList.toggle('hidden', isValid);
-                    this.ui.btnSubmit.disabled = !isValid;
+                    
+                    // Enable submit kalau email valid & metode pembayaran udah dipilih
+                    const isMetodeSelected = document.getElementById('input-metode').value !== "";
+                    this.ui.btnSubmit.disabled = !isValid || !isMetodeSelected;
                 });
+                
+                // Tambahan validasi kalau dropdown metode diklik
+                document.getElementById('input-metode').addEventListener('change', () => {
+                    const isValidEmail = this.ui.inputEmail.value === "" || /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(this.ui.inputEmail.value);
+                    this.ui.btnSubmit.disabled = !isValidEmail || document.getElementById('input-metode').value === "";
+                });
+                
                 this.ui.selectKesibukan.addEventListener('change', (e) => {
                     const isLainnya = e.target.value === 'Lainnya';
                     this.ui.inputLainnya.classList.toggle('hidden', !isLainnya);
                     if (isLainnya) this.ui.inputLainnya.setAttribute('required', 'true');
                     else this.ui.inputLainnya.removeAttribute('required');
                 });
+
+                this.ui.selectPaket.addEventListener('change', (e) => {
+                    const isBundling = e.target.value === 'bundling';
+                    this.ui.formPeserta2.classList.toggle('hidden', !isBundling);
+                    if (isBundling) {
+                        this.ui.inputNama2.setAttribute('required', 'true');
+                        this.ui.inputEmail2.setAttribute('required', 'true');
+                        this.ui.inputWa2.setAttribute('required', 'true');
+                    } else {
+                        this.ui.inputNama2.removeAttribute('required');
+                        this.ui.inputEmail2.removeAttribute('required');
+                        this.ui.inputWa2.removeAttribute('required');
+                        this.ui.inputNama2.value = '';
+                        this.ui.inputEmail2.value = '';
+                        this.ui.inputWa2.value = '';
+                    }
+                });
             }
 
-            // AMBIL STATUS KUOTA + DYNAMIC TOKEN DARI SERVER GOOGLE
             async loadPreFlightData() {
                 try {
                     const response = await fetch(this.API_URL);
                     const data = await response.json();
                     if (data.status === 'habis') { this.switchView('soldout'); } 
                     else {
-                        this.state.dynamicToken = data.dynamicToken; // Kunci rahasia tersimpan di state
-                        this.ui.btnSubmit.disabled = false;
+                        this.state.dynamicToken = data.dynamicToken;
+                        // Tombol dibikin disabled dulu nunggu mereka pilih bank
+                        this.ui.btnSubmit.disabled = true;
                         this.ui.textBtnSubmit.innerHTML = 'Daftar & Bayar ➡️';
                     }
                 } catch (error) {
@@ -239,13 +308,12 @@
                 if (this.state.isSubmitting) return;
                 this.setLoadingState(true, this.ui.btnSubmit, this.ui.textBtnSubmit, "Mengamankan Koneksi AI...");
 
-                // Pemicu Validasi Gaib Google reCAPTCHA v3
                 grecaptcha.ready(() => {
                     grecaptcha.execute(this.RECAPTCHA_SITE_KEY, {action: 'submit'}).then(async (token) => {
                         const formData = new FormData(this.ui.form);
                         formData.append('action', 'register');
-                        formData.append('dynamic_token', this.state.dynamicToken); // Inject Kunci Lapis 1
-                        formData.append('recaptcha_token', token); // Inject Kunci Lapis 2
+                        formData.append('dynamic_token', this.state.dynamicToken);
+                        formData.append('recaptcha_token', token);
 
                         try {
                             const response = await fetch(this.API_URL, { method: 'POST', body: formData });
@@ -257,7 +325,7 @@
                                 this.handleSuccessRegistration();
                             } else { throw new Error(result.message || "Akses Server Ditolak."); }
                         } catch (error) { this.showErrorAlert(error.message); } 
-                        finally { this.setLoadingState(false, this.ui.btnSubmit, this.ui.textBtnSubmit, "Daftar & Bayar"); }
+                        finally { this.setLoadingState(false, this.ui.btnSubmit, this.ui.textBtnSubmit, "Daftar & Bayar ➡️"); }
                     });
                 });
             }
@@ -270,17 +338,75 @@
                     formData.append('ticketId', this.state.ticketId);
                     const response = await fetch(this.API_URL, { method: 'POST', body: formData });
                     const result = await response.json();
-                    if (result.status === 'LUNAS') { Swal.fire('Lunas! 🎉', 'E-Tiket resmi telah dikirim ke email lu, silakan cek folder inbox/spam.', 'success'); } 
-                    else { Swal.fire('Status: Pending ⏳', 'Pembayaran belum masuk di sistem. Tunggu max 5 menit atau pastikan transfer lu berhasil.', 'info'); }
+                    if (result.status === 'LUNAS') { Swal.fire('Lunas! 🎉', 'E-Tiket resmi telah dikirim ke email masing-masing peserta.', 'success'); } 
+                    else { Swal.fire('Status: Pending ⏳', 'Pembayaran belum masuk di sistem. Tunggu max 5 menit.', 'info'); }
                 } catch (error) { this.showErrorAlert("Gagal terhubung ke database server."); } 
                 finally { this.setLoadingState(false, this.ui.btnVerify, this.ui.textBtnVerify, "SAYA SUDAH BAYAR"); }
             }
 
+            // 🟢 UPDATE LOGIKA NOTA DIGITAL SEBELUM KE HALAMAN BAYAR
             handleSuccessRegistration() {
+                const paket = this.ui.selectPaket.value;
+                const metodeSelect = document.getElementById('input-metode');
+                const metode = metodeSelect.value;
+                const namaMetodeDisplay = metodeSelect.options[metodeSelect.selectedIndex].text;
+                
+                const hargaTiket = paket === 'bundling' ? 180000 : 100000;
+                const namaPaket = paket === 'bundling' ? 'Tiket Bundling (2 Orang)' : 'Tiket Reguler (1 Orang)';
+                
+                let adminFee = 0;
+                if (metode !== 'qris' && metode !== 'gopay') {
+                    adminFee = 4000;
+                }
+                
+                const totalBayar = hargaTiket + adminFee;
+                
+                const formatter = new Intl.NumberFormat('id-ID', { 
+                    style: 'currency', 
+                    currency: 'IDR', 
+                    minimumFractionDigits: 0 
+                });
+
+                const htmlNota = `
+                    <div style="text-align: left; background: #f9f9f9; padding: 20px; border-radius: 16px; margin-top: 15px; border: 2px dashed #e5e7eb;">
+                        <h4 style="text-align: center; font-weight: 800; margin-bottom: 15px; font-size: 16px; color: #1A1A1A;">🧾 NOTA PEMBAYARAN</h4>
+                        
+                        <div style="display: flex; justify-content: space-between; margin-bottom: 8px; font-size: 14px; color: #4b5563;">
+                            <span>${namaPaket}</span>
+                            <span style="font-weight: 600;">${formatter.format(hargaTiket)}</span>
+                        </div>
+                        
+                        <div style="display: flex; justify-content: space-between; margin-bottom: 15px; padding-bottom: 15px; border-bottom: 1px solid #e5e7eb; font-size: 14px; color: #4b5563;">
+                            <span>Admin Fee (${namaMetodeDisplay.split(' - ')[0]})</span>
+                            <span style="font-weight: 600;">${formatter.format(adminFee)}</span>
+                        </div>
+                        
+                        <div style="display: flex; justify-content: space-between; font-size: 18px; color: #1A1A1A; font-weight: 800;">
+                            <span>TOTAL TAGIHAN</span>
+                            <span style="color: #c53030;">${formatter.format(totalBayar)}</span>
+                        </div>
+                    </div>
+                    <p style="font-size: 13px; color: #6b7280; margin-top: 15px; line-height: 1.5;">Pastikan rincian di atas sudah sesuai. Klik tombol di bawah ini untuk menuju halaman kasir resmi Midtrans.</p>
+                `;
+
                 Swal.fire({
-                    title: 'Satu Langkah Lagi! 🎉', html: 'Klik tombol di bawah untuk membuka halaman invoice pembayaran resmi.', icon: 'info',
-                    confirmButtonColor: '#1A1A1A', confirmButtonText: 'Buka Pembayaran 💸', allowOutsideClick: false
-                }).then((action) => { if (action.isConfirmed) { window.open(this.state.paymentUrl, "_blank"); this.switchView('payment'); } });
+                    title: 'Data Berhasil Diamankan! 🎉',
+                    html: htmlNota,
+                    icon: 'success',
+                    confirmButtonColor: '#1A1A1A',
+                    confirmButtonText: 'Lakukan Pembayaran 💳',
+                    allowOutsideClick: false,
+                    customClass: {
+                        popup: 'rounded-3xl',
+                        title: 'text-xl md:text-2xl font-extrabold',
+                        confirmButton: 'w-full text-lg py-3 rounded-xl shadow-lg hover:bg-gray-800 transition-all'
+                    }
+                }).then((action) => {
+                    if (action.isConfirmed) {
+                        window.open(this.state.paymentUrl, "_blank");
+                        this.switchView('payment');
+                    }
+                });
             }
 
             switchView(v) {
