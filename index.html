@@ -536,31 +536,48 @@
             }
 
             // 🟢 Fungsi render UI ala DANA
-            showBottomSheet() {
-                const formatter = new Intl.NumberFormat('id-ID', { style: 'currency', currency: 'IDR', minimumFractionDigits: 0 });
+            showBottomSheet() {
+                const paket = this.ui.selectPaket.value;
+                const metodeSelect = document.getElementById('input-metode');
+                const metode = metodeSelect.value;
+                
+                const hargaTiket = paket === 'bundling' ? 140000 : 75000;
+                let adminFee = 0;
+                if (metode !== 'qris' && metode !== 'gopay') {
+                    adminFee = 4000;
+                }
+                
+                const totalBayar = hargaTiket + adminFee - this.state.diskon;
+                
+                const formatter = new Intl.NumberFormat('id-ID', { style: 'currency', currency: 'IDR', minimumFractionDigits: 0 });
 
-                document.getElementById('sheet-subtotal').innerText = formatter.format(this.state.hargaDasar);
-                document.getElementById('sheet-admin').innerText = formatter.format(this.state.adminFee);
-                
-                if (this.state.diskon > 0) {
-                    document.getElementById('sheet-promo-row').classList.remove('hidden');
-                    document.getElementById('sheet-promo-name').innerText = `Promo (${this.state.kodePromo})`;
-                    document.getElementById('sheet-promo-amount').innerText = `-${formatter.format(this.state.diskon)}`;
-                } else {
-                    document.getElementById('sheet-promo-row').classList.add('hidden');
-                }
+                // Render detail ke dalam HTML Bottom Sheet
+                document.getElementById('sheet-subtotal').innerText = formatter.format(hargaTiket);
+                document.getElementById('sheet-admin').innerText = formatter.format(adminFee);
+                
+                if (this.state.diskon > 0) {
+                    document.getElementById('sheet-promo-row').classList.remove('hidden');
+                    document.getElementById('sheet-promo-name').innerText = `Promo (${this.state.kodePromo})`;
+                    document.getElementById('sheet-promo-amount').innerText = `-${formatter.format(this.state.diskon)}`;
+                } else {
+                    document.getElementById('sheet-promo-row').classList.add('hidden');
+                }
 
-                const formatTotal = formatter.format(this.state.totalBayar);
-                document.getElementById('sheet-total-harga').innerText = formatTotal;
-                this.ui.btnPayMidtrans.innerText = `BAYAR ${formatTotal.replace(/\s/g, '')}`;
+                const formatTotal = formatter.format(totalBayar);
+                document.getElementById('sheet-total-harga').innerText = formatTotal;
+                this.ui.btnPayMidtrans.innerText = `BAYAR ${formatTotal.replace(/\s/g, '')}`;
 
-                this.ui.bottomSheetOverlay.classList.remove('hidden');
-                setTimeout(() => {
-                    this.ui.bottomSheetOverlay.classList.remove('opacity-0');
-                    this.ui.bottomSheet.classList.remove('sheet-closed');
-                    this.ui.bottomSheet.classList.add('sheet-open');
-                }, 10);
-            }
+                // Tampilkan Overlay & Modal
+                this.ui.bottomSheetOverlay.classList.remove('hidden');
+                
+                // Beri sedikit jeda agar transisi CSS jalan
+                setTimeout(() => {
+                    this.ui.bottomSheetOverlay.classList.remove('opacity-0');
+                    this.ui.bottomSheet.classList.remove('sheet-closed');
+                    this.ui.bottomSheet.classList.add('sheet-open');
+                }, 10);
+            }
+
             closeBottomSheet() {
                 this.ui.bottomSheet.classList.remove('sheet-open');
                 this.ui.bottomSheet.classList.add('sheet-closed');
@@ -603,3 +620,5 @@
     </script>
 </body>
 </html>
+
+ini html nya
