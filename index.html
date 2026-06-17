@@ -1,401 +1,405 @@
-<!DOCTYPE html>
-<html lang="id">
+"<!DOCTYPE html>
+<html lang=\"id\">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pendaftaran Workshop Finansial | Global Bridge Academy</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <meta charset=\"UTF-8\">
+    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">
+    <title>Pendaftaran Workshop Finansial | Global Bridge Academy</title>
+    <script src=\"https://cdn.tailwindcss.com\"></script>
+    <link href=\"https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap\" rel=\"stylesheet\">
+    <script src=\"https://cdn.jsdelivr.net/npm/sweetalert2@11\"></script>
 
-    <script src="https://www.google.com/recaptcha/api.js?render=6LdOnvosAAAAAF7d2kT11AXQZEjFHuwDQIgVJlyG"></script>
+    <script src=\"https://www.google.com/recaptcha/api.js?render=6LdOnvosAAAAAF7d2kT11AXQZEjFHuwDQIgVJlyG\"></script>
 
-    <style>
-        body { font-family: 'Poppins', sans-serif; }
-        .fade-in { animation: fadeIn 0.5s ease-in-out; }
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        .swal2-title, .swal2-html-container, .swal2-confirm {
-            font-family: 'Poppins', sans-serif !important;
-        }
-        /* Tambahan untuk animasi Bottom Sheet */
-        .sheet-open { transform: translateY(0%); }
-        .sheet-closed { transform: translateY(100%); }
-    </style>
+    <style>
+        body { font-family: 'Poppins', sans-serif; }
+        .fade-in { animation: fadeIn 0.5s ease-in-out; }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .swal2-title, .swal2-html-container, .swal2-confirm {
+            font-family: 'Poppins', sans-serif !important;
+        }
+        .sheet-open { transform: translateY(0%); }
+        .sheet-closed { transform: translateY(100%); }
+    </style>
 </head>
-<body class="bg-[#F6F6F6] text-[#1A1A1A] antialiased">
+<body class=\"bg-[#F6F6F6] text-[#1A1A1A] antialiased\">
 
-```html
-<div class="min-h-screen flex items-start justify-center py-10 px-4 sm:px-6 md:p-10 lg:p-20">
-    <main class="w-full max-w-7xl bg-white rounded-3xl md:rounded-[2rem] shadow-2xl overflow-hidden grid grid-cols-1 lg:grid-cols-2 items-start">
+<div class=\"min-h-screen flex items-start justify-center py-10 px-4 sm:px-6 md:p-10 lg:p-20\">
+    <main class=\"w-full max-w-7xl bg-white rounded-3xl md:rounded-[2rem] shadow-2xl overflow-hidden grid grid-cols-1 lg:grid-cols-2 items-start\">
 
-        <!-- BAGIAN KIRI: INFO WORKSHOP -->
-        <div class="p-6 sm:p-8 md:p-12 lg:p-16 bg-white self-start">
-            
-            <div class="space-y-8 md:space-y-10">
+        <!-- BAGIAN KIRI: INFO WORKSHOP -->
+        <div class=\"p-6 sm:p-8 md:p-12 lg:p-16 bg-white self-start\">
+            
+            <div class=\"space-y-8 md:space-y-10\">
 
-                <div class="space-y-4 md:space-y-6">
-                    <span class="inline-block px-3 py-1 bg-yellow-100 text-[#D8A607] font-bold text-[10px] md:text-xs tracking-widest uppercase rounded-full">
-                        Global Bridge Academy
-                    </span>
+                <div class=\"space-y-4 md:space-y-6\">
+                    <span class=\"inline-block px-3 py-1 bg-yellow-100 text-[#D8A607] font-bold text-[10px] md:text-xs tracking-widest uppercase rounded-full\">
+                        Global Bridge Academy
+                    </span>
 
-                    <h1 class="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-extrabold leading-tight tracking-tight text-[#1A1A1A]">
-                        Level up your finansial mindset
-                    </h1>
+                    <h1 class=\"text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-extrabold leading-tight tracking-tight text-[#1A1A1A]\">
+                        Level up your finansial mindset
+                    </h1>
 
-                    <p class="text-base sm:text-lg text-[#555555] leading-relaxed">
-                        Buruan! daftar sekarang agar gaji lu nggak cuma numpang lewat dan lu bisa stop kebiasaan boncos tiap akhir bulan!
-                    </p>
-                </div>
+                    <p class=\"text-base sm:text-lg text-[#555555] leading-relaxed\">
+                        Buruan! daftar sekarang agar gaji lu nggak cuma numpang lewat dan lu bisa stop kebiasaan boncos tiap akhir bulan!
+                    </p>
+                </div>
 
-                <div class="space-y-5 border-t border-gray-100 pt-6 md:pt-8">
+                <div class=\"space-y-5 border-t border-gray-100 pt-6 md:pt-8\">
 
-                    <div class="flex items-center gap-4 md:gap-5">
-                        <div class="p-3 md:p-4 rounded-xl md:rounded-2xl bg-gray-50 border border-gray-100 shadow-sm shrink-0">
-                            <svg class="w-5 h-5 md:w-6 md:h-6 text-[#1A1A1A]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                            </svg>
-                        </div>
-                        <div>
-                            <p class="text-xs md:text-sm text-gray-500 font-medium">Investasi Tiket</p>
-                            <p class="font-extrabold text-xl md:text-2xl text-[#1A1A1A]">
-                                Rp. 75.000
-                                <span class="text-sm font-normal text-gray-500">/ Orang</span>
-                            </p>
-                        </div>
-                    </div>
+                    <div class=\"flex items-center gap-4 md:gap-5\">
+                        <div class=\"p-3 md:p-4 rounded-xl md:rounded-2xl bg-gray-50 border border-gray-100 shadow-sm shrink-0\">
+                            <svg class=\"w-5 h-5 md:w-6 md:h-6 text-[#1A1A1A]\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\">
+                                <path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z\"></path>
+                            </svg>
+                        </div>
+                        <div>
+                            <p class=\"text-xs md:text-sm text-gray-500 font-medium\">Investasi Tiket</p>
+                            <p class=\"font-extrabold text-xl md:text-2xl text-[#1A1A1A]\">
+                                <span id=\"info-harga-tiket\">Rp ...</span>
+                                <span class=\"text-sm font-normal text-gray-500\">/ Orang</span>
+                            </p>
+                        </div>
+                    </div>
 
-                    <div class="flex items-center gap-4 md:gap-5">
-                        <div class="p-3 md:p-4 rounded-xl md:rounded-2xl bg-gray-50 border border-gray-100 shadow-sm shrink-0">
-                            <svg class="w-5 h-5 md:w-6 md:h-6 text-[#1A1A1A]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 00-2 2z"></path>
-                            </svg>
-                        </div>
-                        <div>
-                            <p class="text-xs md:text-sm text-gray-500 font-medium">Waktu Pelaksanaan</p>
-                            <p class="font-bold text-sm md:text-base text-[#1A1A1A]">
-                                06 Juni 2026
-                                <br>
-                                <span class="font-normal text-gray-600">09.00 - 13.00 WIB</span>
-                            </p>
-                        </div>
-                    </div>
+                    <div class=\"flex items-center gap-4 md:gap-5\">
+                        <div class=\"p-3 md:p-4 rounded-xl md:rounded-2xl bg-gray-50 border border-gray-100 shadow-sm shrink-0\">
+                            <svg class=\"w-5 h-5 md:w-6 md:h-6 text-[#1A1A1A]\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\">
+                                <path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 00-2 2z\"></path>
+                            </svg>
+                        </div>
+                        <div>
+                            <p class=\"text-xs md:text-sm text-gray-500 font-medium\">Waktu Pelaksanaan</p>
+                            <p class=\"font-bold text-sm md:text-base text-[#1A1A1A]\">
+                                <span id=\"info-tanggal\">06 Juni 2026</span>
+                                <br>
+                                <span id=\"info-jam\" class=\"font-normal text-gray-600\">09.00 - 13.00 WIB</span>
+                            </p>
+                        </div>
+                    </div>
 
-                    <div class="flex items-center gap-4 md:gap-5">
-                        <div class="p-3 md:p-4 rounded-xl md:rounded-2xl bg-gray-50 border border-gray-100 shadow-sm shrink-0">
-                            <svg class="w-5 h-5 md:w-6 md:h-6 text-[#1A1A1A]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
-                            </svg>
-                        </div>
-                        <div>
-                            <p class="text-xs md:text-sm text-gray-500 font-medium">Lokasi Workshop</p>
-                            <p class="font-bold text-sm md:text-base text-[#1A1A1A]">
-                                Glowork Space
-                                <br>
-                                <span class="font-normal text-gray-600">Jakarta Selatan</span>
-                            </p>
-                        </div>
-                    </div>
+                    <div class=\"flex items-center gap-4 md:gap-5\">
+                        <div class=\"p-3 md:p-4 rounded-xl md:rounded-2xl bg-gray-50 border border-gray-100 shadow-sm shrink-0\">
+                            <svg class=\"w-5 h-5 md:w-6 md:h-6 text-[#1A1A1A]\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\">
+                                <path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z\"></path>
+                                <path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M15 11a3 3 0 11-6 0 3 3 0 016 0z\"></path>
+                            </svg>
+                        </div>
+                        <div>
+                            <p class=\"text-xs md:text-sm text-gray-500 font-medium\">Lokasi Workshop</p>
+                            <p class=\"font-bold text-sm md:text-base text-[#1A1A1A]\">
+                                <span id=\"info-lokasi-nama\">Glowork Space</span>
+                                <br>
+                                <span id=\"info-lokasi-kota\" class=\"font-normal text-gray-600\">Jakarta Selatan</span>
+                            </p>
+                        </div>
+                    </div>
 
-                </div>
+                </div>
 
-                <div class="pt-6 border-t border-gray-100">
+                <div class=\"pt-6 border-t border-gray-100\">
 
-                    <div class="mb-5">
-                        <p class="text-xs md:text-sm text-gray-500 font-semibold mb-1">
-                            Speaker Utama
-                        </p>
-                        <p class="font-bold text-base text-[#1A1A1A]">
-                            Ka David Johan
-                            <span class="font-normal text-gray-600 text-sm block">
-                                Founder & Product Wallet Ya
-                            </span>
-                        </p>
-                    </div>
+                    <div class=\"mb-5\">
+                        <p class=\"text-xs md:text-sm text-gray-500 font-semibold mb-1\">
+                            Speaker Utama
+                        </p>
+                        <p class=\"font-bold text-base text-[#1A1A1A]\">
+                            <span id=\"info-speaker-nama\">Ka David Johan</span>
+                            <span class=\"font-normal text-gray-600 text-sm block\" id=\"info-speaker-title\">
+                                Founder & Product Wallet Ya
+                            </span>
+                        </p>
+                    </div>
 
-                    <div>
-                        <p class="text-xs md:text-sm text-gray-500 font-semibold mb-3">
-                            Topic to Discuss:
-                        </p>
+                    <div>
+                        <p class=\"text-xs md:text-sm text-gray-500 font-semibold mb-3\">
+                            Topic to Discuss:
+                        </p>
 
-                        <ul class="space-y-2 text-sm text-[#1A1A1A] font-medium">
-                            <li class="flex items-center gap-2">
-                                <svg class="w-5 h-5 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path>
-                                </svg>
-                                Membangun Financial Mindset
-                            </li>
+                        <ul id=\"info-topics\" class=\"space-y-2 text-sm text-[#1A1A1A] font-medium\">
+                            <li class=\"flex items-center gap-2\">
+                                <svg class=\"w-5 h-5 text-green-500\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\">
+                                    <path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"3\" d=\"M5 13l4 4L19 7\"></path>
+                                </svg>
+                                Membangun Financial Mindset
+                            </li>
+                            <li class=\"flex items-center gap-2\">
+                                <svg class=\"w-5 h-5 text-green-500\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\">
+                                    <path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"3\" d=\"M5 13l4 4L19 7\"></path>
+                                </svg>
+                                Mengatur Cashflow
+                            </li>
+                            <li class=\"flex items-center gap-2\">
+                                <svg class=\"w-5 h-5 text-green-500\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\">
+                                    <path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"3\" d=\"M5 13l4 4L19 7\"></path>
+                                </svg>
+                                Menyusun Budgeting
+                            </li>
+                            <li class=\"flex items-center gap-2\">
+                                <svg class=\"w-5 h-5 text-green-500\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\">
+                                    <path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"3\" d=\"M5 13l4 4L19 7\"></path>
+                                </svg>
+                                Mengontrol Pengeluaran
+                            </li>
+                            <li class=\"flex items-center gap-2\">
+                                <svg class=\"w-5 h-5 text-green-500\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\">
+                                    <path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"3\" d=\"M5 13l4 4L19 7\"></path>
+                                </svg>
+                                Memahami Financial Technology
+                            </li>
+                        </ul>
 
-                            <li class="flex items-center gap-2">
-                                <svg class="w-5 h-5 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path>
-                                </svg>
-                                Mengatur Cashflow
-                            </li>
+                    </div>
 
-                            <li class="flex items-center gap-2">
-                                <svg class="w-5 h-5 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path>
-                                </svg>
-                                Menyusun Budgeting
-                            </li>
+                </div>
 
-                            <li class="flex items-center gap-2">
-                                <svg class="w-5 h-5 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path>
-                                </svg>
-                                Mengontrol Pengeluaran
-                            </li>
+            </div>
 
-                            <li class="flex items-center gap-2">
-                                <svg class="w-5 h-5 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path>
-                                </svg>
-                                Memahami Financial Technology
-                            </li>
-                        </ul>
+        </div>
+            <!-- BAGIAN KANAN: FORM PENDAFTARAN -->
+            <div class=\"bg-[#FED226] p-6 sm:p-8 md:p-12 lg:p-16 flex items-center justify-center relative overflow-hidden\">
+                <div class=\"absolute -top-10 -right-10 md:-top-24 md:-right-24 w-40 h-40 md:w-64 md:h-64 bg-white opacity-20 rounded-full blur-3xl\"></div>
+                <div class=\"absolute -bottom-10 -left-10 md:-bottom-24 md:-left-24 w-40 h-40 md:w-64 md:h-64 bg-black opacity-5 rounded-full blur-3xl\"></div>
 
-                    </div>
+                <div id=\"ui-container\" class=\"w-full max-w-md bg-white p-6 sm:p-8 md:p-10 rounded-3xl md:rounded-[2rem] shadow-xl relative z-10 transition-all duration-300\">
+                    
+                    <form id=\"form-pendaftaran\" class=\"w-full space-y-4 md:space-y-5 fade-in\">
+                        <div class=\"mb-6 md:mb-8 text-center md:text-left\">
+                            <h2 class=\"text-2xl md:text-3xl font-extrabold text-[#1A1A1A]\">Daftar Sekarang</h2>
+                            <p class=\"text-xs md:text-sm text-gray-500 mt-1 md:mt-2\">Isi data diri dengan benar untuk pengiriman tiket.</p>
+                        </div>
 
-                </div>
+                        <div class=\"space-y-1 md:space-y-1.5\">
+                            <label class=\"text-xs md:text-sm font-semibold text-[#1A1A1A] ml-1\">Pilih Paket Tiket</label>
+                            <select id=\"input-paket\" name=\"paket_tiket\" required class=\"w-full px-4 py-3 md:px-5 md:py-4 bg-gray-50 border border-gray-200 rounded-xl text-sm md:text-base text-[#1A1A1A] focus:outline-none focus:ring-2 focus:ring-[#1A1A1A] cursor-pointer\">
+                                <option value=\"reguler\" selected>Tiket Reguler </option>
+                                <option value=\"bundling\">Tiket Bundling  </option>
+                            </select>
+                        </div>
 
-            </div>
+                        <div class=\"space-y-1 md:space-y-1.5\">
+                            <label class=\"text-xs md:text-sm font-semibold text-[#1A1A1A] ml-1\">Nama Lengkap (Peserta 1)</label>
+                            <input name=\"nama\" type=\"text\" placeholder=\"Contoh: John Doe\" required class=\"w-full px-4 py-3 md:px-5 md:py-4 bg-gray-50 border border-gray-200 rounded-xl text-sm md:text-base text-[#1A1A1A] placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#1A1A1A]\">
+                        </div>
 
-        </div>
-            <!-- BAGIAN KANAN: FORM PENDAFTARAN -->
-            <div class="bg-[#FED226] p-6 sm:p-8 md:p-12 lg:p-16 flex items-center justify-center relative overflow-hidden">
-                <div class="absolute -top-10 -right-10 md:-top-24 md:-right-24 w-40 h-40 md:w-64 md:h-64 bg-white opacity-20 rounded-full blur-3xl"></div>
-                <div class="absolute -bottom-10 -left-10 md:-bottom-24 md:-left-24 w-40 h-40 md:w-64 md:h-64 bg-black opacity-5 rounded-full blur-3xl"></div>
+                        <div class=\"space-y-1 md:space-y-1.5\">
+                            <label class=\"text-xs md:text-sm font-semibold text-[#1A1A1A] ml-1\">Email Aktif (Peserta 1)</label>
+                            <input id=\"input-email\" name=\"email\" type=\"email\" placeholder=\"john@email.com\" required class=\"w-full px-4 py-3 md:px-5 md:py-4 bg-gray-50 border border-gray-200 rounded-xl text-sm md:text-base text-[#1A1A1A] placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#1A1A1A]\">
+                            <p id=\"error-email\" class=\"hidden text-xs text-red-600 font-semibold ml-1\">❌ Format email tidak valid!</p>
+                        </div>
 
-                <div id="ui-container" class="w-full max-w-md bg-white p-6 sm:p-8 md:p-10 rounded-3xl md:rounded-[2rem] shadow-xl relative z-10 transition-all duration-300">
-                    
-                    <form id="form-pendaftaran" class="w-full space-y-4 md:space-y-5 fade-in">
-                        <div class="mb-6 md:mb-8 text-center md:text-left">
-                            <h2 class="text-2xl md:text-3xl font-extrabold text-[#1A1A1A]">Daftar Sekarang</h2>
-                            <p class="text-xs md:text-sm text-gray-500 mt-1 md:mt-2">Isi data diri dengan benar untuk pengiriman tiket.</p>
-                        </div>
+                        <div class=\"space-y-1 md:space-y-1.5\">
+                            <label class=\"text-xs md:text-sm font-semibold text-[#1A1A1A] ml-1\">No. WhatsApp (Peserta 1)</label>
+                            <input name=\"whatsapp\" type=\"tel\" pattern=\"[0-9]+\" minlength=\"9\" placeholder=\"08123xxxx\" required class=\"w-full px-4 py-3 md:px-5 md:py-4 bg-gray-50 border border-gray-200 rounded-xl text-sm md:text-base text-[#1A1A1A] placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#1A1A1A]\">
+                        </div>
 
-                        <div class="space-y-1 md:space-y-1.5">
-                            <label class="text-xs md:text-sm font-semibold text-[#1A1A1A] ml-1">Pilih Paket Tiket</label>
-                            <select id="input-paket" name="paket_tiket" required class="w-full px-4 py-3 md:px-5 md:py-4 bg-gray-50 border border-gray-200 rounded-xl text-sm md:text-base text-[#1A1A1A] focus:outline-none focus:ring-2 focus:ring-[#1A1A1A] cursor-pointer">
-                                <option value="reguler" selected>Tiket Reguler </option>
-                                <option value="bundling">Tiket Bundling  </option>
-                            </select>
-                        </div>
+                        <div class=\"space-y-1 md:space-y-1.5\">
+                            <label class=\"text-xs md:text-sm font-semibold text-[#1A1A1A] ml-1\">Kesibukan Saat Ini</label>
+                            <select id=\"input-kesibukan\" name=\"kesibukan\" required class=\"w-full px-4 py-3 md:px-5 md:py-4 bg-gray-50 border border-gray-200 rounded-xl text-sm md:text-base text-[#1A1A1A] appearance-none focus:outline-none focus:ring-2 focus:ring-[#1A1A1A] cursor-pointer\">
+                                <option value=\"\" disabled selected class=\"text-gray-400\">Pilih...</option>
+                                <option value=\"Mahasiswa\">Mahasiswa</option>
+                                <option value=\"Karyawan\">Karyawan</option>
+                                <option value=\"Wirausaha\">Wirausaha / Freelancer</option>
+                                <option value=\"Ibu Rumah Tangga\">Ibu Rumah Tangga</option>
+                                <option value=\"Lainnya\">Lainnya</option>
+                            </select>
+                            <input type=\"text\" id=\"input-lainnya\" name=\"kesibukan_lainnya\" placeholder=\"Sebutkan kesibukanmu...\" class=\"hidden mt-2 w-full px-4 py-3 md:px-5 md:py-4 bg-gray-50 border border-gray-200 rounded-xl text-sm md:text-base text-[#1A1A1A] focus:outline-none focus:ring-2 focus:ring-[#1A1A1A]\">
+                        </div>
 
-                        <div class="space-y-1 md:space-y-1.5">
-                            <label class="text-xs md:text-sm font-semibold text-[#1A1A1A] ml-1">Nama Lengkap (Peserta 1)</label>
-                            <input name="nama" type="text" placeholder="Contoh: John Doe" required class="w-full px-4 py-3 md:px-5 md:py-4 bg-gray-50 border border-gray-200 rounded-xl text-sm md:text-base text-[#1A1A1A] placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#1A1A1A]">
-                        </div>
+                        <div class=\"space-y-1 md:space-y-1.5\">
+                            <label class=\"text-xs md:text-sm font-semibold text-[#1A1A1A] ml-1\">Masalah Keuangan</label>
+                            <textarea name=\"masalah\" rows=\"2\" placeholder=\"Singkat saja, misal: susah nabung\" required class=\"w-full px-4 py-3 md:px-5 md:py-4 bg-gray-50 border border-gray-200 rounded-xl text-sm md:text-base text-[#1A1A1A] placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#1A1A1A] resize-none\"></textarea>
+                        </div>
 
-                        <div class="space-y-1 md:space-y-1.5">
-                            <label class="text-xs md:text-sm font-semibold text-[#1A1A1A] ml-1">Email Aktif (Peserta 1)</label>
-                            <input id="input-email" name="email" type="email" placeholder="john@email.com" required class="w-full px-4 py-3 md:px-5 md:py-4 bg-gray-50 border border-gray-200 rounded-xl text-sm md:text-base text-[#1A1A1A] placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#1A1A1A]">
-                            <p id="error-email" class="hidden text-xs text-red-600 font-semibold ml-1">❌ Format email tidak valid!</p>
-                        </div>
+                        <!-- 🟢 KOTAK KHUSUS PESERTA 2 -->
+                        <div id=\"form-peserta-2\" class=\"hidden space-y-4 p-4 mt-2 bg-yellow-50 border-l-4 border-[#D8A607] rounded-xl fade-in\">
+                            <p class=\"font-bold text-sm md:text-base text-[#1A1A1A]\">Data Peserta Ke-2</p>
+                            <div class=\"space-y-1 md:space-y-1.5\">
+                                <label class=\"text-xs md:text-sm font-semibold text-[#1A1A1A] ml-1\">Nama Lengkap (Peserta 2)</label>
+                                <input id=\"input-nama-2\" name=\"nama_2\" type=\"text\" placeholder=\"Contoh: Jane Doe\" class=\"w-full px-4 py-3 bg-white border border-yellow-200 rounded-xl text-sm text-[#1A1A1A] placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#1A1A1A]\">
+                            </div>
+                            <div class=\"space-y-1 md:space-y-1.5\">
+                                <label class=\"text-xs md:text-sm font-semibold text-[#1A1A1A] ml-1\">Email Aktif (Peserta 2)</label>
+                                <input id=\"input-email-2\" name=\"email_2\" type=\"email\" placeholder=\"jane@email.com\" class=\"w-full px-4 py-3 bg-white border border-yellow-200 rounded-xl text-sm text-[#1A1A1A] placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#1A1A1A]\">
+                            </div>
+                            <div class=\"space-y-1 md:space-y-1.5\">
+                                <label class=\"text-xs md:text-sm font-semibold text-[#1A1A1A] ml-1\">No. WhatsApp (Peserta 2)</label>
+                                <input id=\"input-wa-2\" name=\"wa_2\" type=\"tel\" pattern=\"[0-9]+\" minlength=\"9\" placeholder=\"0856xxxx\" class=\"w-full px-4 py-3 bg-white border border-yellow-200 rounded-xl text-sm text-[#1A1A1A] placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#1A1A1A]\">
+                            </div>
 
-                        <div class="space-y-1 md:space-y-1.5">
-                            <label class="text-xs md:text-sm font-semibold text-[#1A1A1A] ml-1">No. WhatsApp (Peserta 1)</label>
-                            <input name="whatsapp" type="tel" pattern="[0-9]+" minlength="9" placeholder="08123xxxx" required class="w-full px-4 py-3 md:px-5 md:py-4 bg-gray-50 border border-gray-200 rounded-xl text-sm md:text-base text-[#1A1A1A] placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#1A1A1A]">
-                        </div>
+                            <div class=\"space-y-1 md:space-y-1.5 pt-2\">
+                                <label class=\"text-xs md:text-sm font-semibold text-[#1A1A1A] ml-1\">Kesibukan Saat Ini (Peserta 2)</label>
+                                <select id=\"input-kesibukan-2\" name=\"kesibukan_2\" class=\"w-full px-4 py-3 bg-white border border-yellow-200 rounded-xl text-sm text-[#1A1A1A] appearance-none focus:outline-none focus:ring-2 focus:ring-[#1A1A1A] cursor-pointer\">
+                                    <option value=\"\" disabled selected class=\"text-gray-400\">Pilih...</option>
+                                    <option value=\"Mahasiswa\">Mahasiswa</option>
+                                    <option value=\"Karyawan\">Karyawan</option>
+                                    <option value=\"Wirausaha\">Wirausaha / Freelancer</option>
+                                    <option value=\"Ibu Rumah Tangga\">Ibu Rumah Tangga</option>
+                                    <option value=\"Lainnya\">Lainnya</option>
+                                </select>
+                                <input type=\"text\" id=\"input-lainnya-2\" name=\"kesibukan_lainnya_2\" placeholder=\"Sebutkan kesibukanmu...\" class=\"hidden mt-2 w-full px-4 py-3 bg-white border border-yellow-200 rounded-xl text-sm text-[#1A1A1A] focus:outline-none focus:ring-2 focus:ring-[#1A1A1A]\">
+                            </div>
+    
+                            <div class=\"space-y-1 md:space-y-1.5\">
+                                <label class=\"text-xs md:text-sm font-semibold text-[#1A1A1A] ml-1\">Masalah Keuangan (Peserta 2)</label>
+                                <textarea id=\"input-masalah-2\" name=\"masalah_2\" rows=\"2\" placeholder=\"Singkat saja, misal: sering boncos\" class=\"w-full px-4 py-3 bg-white border border-yellow-200 rounded-xl text-sm text-[#1A1A1A] placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#1A1A1A] resize-none\"></textarea>
+                            </div>
+                        </div>
 
-                        <div class="space-y-1 md:space-y-1.5">
-                            <label class="text-xs md:text-sm font-semibold text-[#1A1A1A] ml-1">Kesibukan Saat Ini</label>
-                            <select id="input-kesibukan" name="kesibukan" required class="w-full px-4 py-3 md:px-5 md:py-4 bg-gray-50 border border-gray-200 rounded-xl text-sm md:text-base text-[#1A1A1A] appearance-none focus:outline-none focus:ring-2 focus:ring-[#1A1A1A] cursor-pointer">
-                                <option value="" disabled selected class="text-gray-400">Pilih...</option>
-                                <option value="Mahasiswa">Mahasiswa</option>
-                                <option value="Karyawan">Karyawan</option>
-                                <option value="Wirausaha">Wirausaha / Freelancer</option>
-                                <option value="Ibu Rumah Tangga">Ibu Rumah Tangga</option>
-                                <option value="Lainnya">Lainnya</option>
-                            </select>
-                            <input type="text" id="input-lainnya" name="kesibukan_lainnya" placeholder="Sebutkan kesibukanmu..." class="hidden mt-2 w-full px-4 py-3 md:px-5 md:py-4 bg-gray-50 border border-gray-200 rounded-xl text-sm md:text-base text-[#1A1A1A] focus:outline-none focus:ring-2 focus:ring-[#1A1A1A]">
-                        </div>
+                        <!-- 🟢 INPUT KODE PROMO -->
+                        <div class=\"space-y-1 md:space-y-1.5 mt-4\">
+                            <label class=\"text-xs md:text-sm font-semibold text-[#1A1A1A] ml-1\">Kode Promo (Opsional)</label>
+                            <input name=\"kode_promo\" type=\"text\" placeholder=\"Masukkan kode promo...\" class=\"w-full px-4 py-3 md:px-5 md:py-4 bg-gray-50 border border-gray-200 rounded-xl text-sm md:text-base text-[#1A1A1A] uppercase focus:outline-none focus:ring-2 focus:ring-[#1A1A1A]\">
+                        </div>
 
-                        <div class="space-y-1 md:space-y-1.5">
-                            <label class="text-xs md:text-sm font-semibold text-[#1A1A1A] ml-1">Masalah Keuangan</label>
-                            <textarea name="masalah" rows="2" placeholder="Singkat saja, misal: susah nabung" required class="w-full px-4 py-3 md:px-5 md:py-4 bg-gray-50 border border-gray-200 rounded-xl text-sm md:text-base text-[#1A1A1A] placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#1A1A1A] resize-none"></textarea>
-                        </div>
+                        <!-- METODE PEMBAYARAN -->
+                        <div class=\"space-y-1 md:space-y-1.5 mt-4\">
+                            <label class=\"text-xs md:text-sm font-semibold text-[#1A1A1A] ml-1\">Metode Pembayaran</label>
+                            <select name=\"metode_pembayaran\" id=\"input-metode\" required class=\"w-full px-4 py-3 md:px-5 md:py-4 bg-gray-50 border border-gray-200 rounded-xl text-sm md:text-base text-[#1A1A1A] focus:outline-none focus:ring-2 focus:ring-[#1A1A1A] cursor-pointer\">
+                                <option value=\"\" disabled selected class=\"text-gray-400\">Pilih Metode...</option>
+                                <optgroup id=\"metode-group-ewallet\" label=\"E-Wallet & QRIS (Bebas Admin)\">
+                                    <option value=\"qris\">QRIS (Semua Bank/E-Wallet)</option>
+                                    <option value=\"gopay\">GoPay</option>
+                                </optgroup>
+                                <optgroup id=\"metode-group-va\" label=\"Virtual Account (Admin Rp 4.000)\">
+                                    <option value=\"mandiri_va\">Mandiri Virtual Account</option>
+                                    <option value=\"bni_va\">BNI Virtual Account</option>
+                                    <option value=\"bri_va\">BRI Virtual Account</option>
+                                    <option value=\"bsi_va\">BSI Virtual Account</option>
+                                    <option value=\"cimb_va\">CIMB Niaga Virtual Account</option>
+                                    <option value=\"permata_va\">Permata Virtual Account</option>
+                                </optgroup>
+                            </select>
+                        </div>
 
-                        <!-- 🟢 KOTAK KHUSUS PESERTA 2 -->
-                        <div id="form-peserta-2" class="hidden space-y-4 p-4 mt-2 bg-yellow-50 border-l-4 border-[#D8A607] rounded-xl fade-in">
-                            <p class="font-bold text-sm md:text-base text-[#1A1A1A]">Data Peserta Ke-2</p>
-                            <div class="space-y-1 md:space-y-1.5">
-                                <label class="text-xs md:text-sm font-semibold text-[#1A1A1A] ml-1">Nama Lengkap (Peserta 2)</label>
-                                <input id="input-nama-2" name="nama_2" type="text" placeholder="Contoh: Jane Doe" class="w-full px-4 py-3 bg-white border border-yellow-200 rounded-xl text-sm text-[#1A1A1A] placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#1A1A1A]">
-                            </div>
-                            <div class="space-y-1 md:space-y-1.5">
-                                <label class="text-xs md:text-sm font-semibold text-[#1A1A1A] ml-1">Email Aktif (Peserta 2)</label>
-                                <input id="input-email-2" name="email_2" type="email" placeholder="jane@email.com" class="w-full px-4 py-3 bg-white border border-yellow-200 rounded-xl text-sm text-[#1A1A1A] placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#1A1A1A]">
-                            </div>
-                            <div class="space-y-1 md:space-y-1.5">
-                                <label class="text-xs md:text-sm font-semibold text-[#1A1A1A] ml-1">No. WhatsApp (Peserta 2)</label>
-                                <input id="input-wa-2" name="wa_2" type="tel" pattern="[0-9]+" minlength="9" placeholder="0856xxxx" class="w-full px-4 py-3 bg-white border border-yellow-200 rounded-xl text-sm text-[#1A1A1A] placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#1A1A1A]">
-                            </div>
+                        <div class=\"pt-2 md:pt-4\">
+                            <button type=\"submit\" id=\"btn-submit\" class=\"w-full flex items-center justify-center gap-2 px-6 py-3 md:px-8 md:py-4 bg-[#1A1A1A] text-white font-bold text-base md:text-lg rounded-xl hover:bg-gray-800 transition-all shadow-lg transform hover:-translate-y-1\" disabled>
+                                <span id=\"text-btn\">Mengecek Proteksi Kuota...</span>
+                            </button>
+                        </div>
+                    </form>
 
-                            <div class="space-y-1 md:space-y-1.5 pt-2">
-                                <label class="text-xs md:text-sm font-semibold text-[#1A1A1A] ml-1">Kesibukan Saat Ini (Peserta 2)</label>
-                                <select id="input-kesibukan-2" name="kesibukan_2" class="w-full px-4 py-3 bg-white border border-yellow-200 rounded-xl text-sm text-[#1A1A1A] appearance-none focus:outline-none focus:ring-2 focus:ring-[#1A1A1A] cursor-pointer">
-                                    <option value="" disabled selected class="text-gray-400">Pilih...</option>
-                                    <option value="Mahasiswa">Mahasiswa</option>
-                                    <option value="Karyawan">Karyawan</option>
-                                    <option value="Wirausaha">Wirausaha / Freelancer</option>
-                                    <option value="Ibu Rumah Tangga">Ibu Rumah Tangga</option>
-                                    <option value="Lainnya">Lainnya</option>
-                                </select>
-                                <input type="text" id="input-lainnya-2" name="kesibukan_lainnya_2" placeholder="Sebutkan kesibukanmu..." class="hidden mt-2 w-full px-4 py-3 bg-white border border-yellow-200 rounded-xl text-sm text-[#1A1A1A] focus:outline-none focus:ring-2 focus:ring-[#1A1A1A]">
-                            </div>
-    
-                            <div class="space-y-1 md:space-y-1.5">
-                                <label class="text-xs md:text-sm font-semibold text-[#1A1A1A] ml-1">Masalah Keuangan (Peserta 2)</label>
-                                <textarea id="input-masalah-2" name="masalah_2" rows="2" placeholder="Singkat saja, misal: sering boncos" class="w-full px-4 py-3 bg-white border border-yellow-200 rounded-xl text-sm text-[#1A1A1A] placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#1A1A1A] resize-none"></textarea>
-                            </div>
-                        </div>
+                    <div id=\"view-soldout\" class=\"hidden text-center py-8 fade-in\">
+                        <div class=\"w-20 h-20 md:w-24 md:h-24 bg-gray-100 rounded-full flex items-center justify-center mx-auto mb-6 border-8 border-gray-50\">
+                            <svg class=\"w-10 h-10 md:w-12 md:h-12 text-gray-400\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z\"></path></svg>
+                        </div>
+                        <h3 class=\"text-2xl md:text-3xl font-extrabold text-[#1A1A1A] mb-3\">Yah, Kuota Habis! 😭</h3>
+                        <p class=\"text-gray-500 text-sm md:text-base mb-8 px-2 leading-relaxed\">Tiket Workshop ini udah ludes terjual. Sampai jumpa di event selanjutnya.</p>
+                        <button disabled class=\"w-full px-6 py-4 bg-gray-200 text-gray-500 font-bold text-base rounded-xl cursor-not-allowed\">TIKET SOLD OUT</button>
+                    </div>
 
-                        <!-- 🟢 INPUT KODE PROMO -->
-                        <div class="space-y-1 md:space-y-1.5 mt-4">
-                            <label class="text-xs md:text-sm font-semibold text-[#1A1A1A] ml-1">Kode Promo (Opsional)</label>
-                            <input name="kode_promo" type="text" placeholder="Masukkan kode promo..." class="w-full px-4 py-3 md:px-5 md:py-4 bg-gray-50 border border-gray-200 rounded-xl text-sm md:text-base text-[#1A1A1A] uppercase focus:outline-none focus:ring-2 focus:ring-[#1A1A1A]">
-                        </div>
+                    <div id=\"view-payment\" class=\"hidden text-center py-4 fade-in\">
+                        <div class=\"w-16 h-16 md:w-20 md:h-20 bg-green-50 rounded-full flex items-center justify-center mx-auto mb-4 border-8 border-green-100\">
+                            <svg class=\"w-8 h-8 md:w-10 md:h-10 text-green-500\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"3\" d=\"M5 13l4 4L19 7\"></path></svg>
+                        </div>
+                        <h3 class=\"text-2xl font-extrabold text-[#1A1A1A] mb-2\">Satu Langkah Lagi!</h3>
+                        <p class=\"text-gray-500 text-sm mb-6\">Selesaikan pembayaran di tab yang baru saja terbuka.</p>
+                        
+                        <div class=\"bg-yellow-50 border border-yellow-200 p-4 rounded-xl text-left mb-6 relative overflow-hidden text-sm text-gray-700\">
+                            <div class=\"absolute top-0 left-0 w-1 h-full bg-[#D8A607]\"></div>
+                            <p class=\"font-bold text-[#1A1A1A] mb-2 flex items-center gap-1.5\">
+                                <svg class=\"w-4 h-4 text-[#D8A607]\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z\"></path></svg>
+                                Instruksi Penting
+                            </p>
+                            <ul class=\"list-disc pl-4 space-y-1\">
+                                <li>Jika tab kasir tidak terbuka, <a id=\"link-payment-fallback\" href=\"#\" target=\"_blank\" class=\"font-bold text-blue-600 underline\">klik di sini</a>.</li>
+                                <li>Setelah transfer, <b>wajib klik tombol di bawah</b> untuk konfirmasi tiket.</li>
+                            </ul>
+                        </div>
+                        
+                        <button id=\"btn-verify-payment\" class=\"w-full flex items-center justify-center gap-2 px-6 py-3 bg-green-500 text-white font-bold text-base rounded-xl hover:bg-green-600 transition-all shadow-md\">
+                            <span id=\"text-btn-verify\">SAYA SUDAH BAYAR</span>
+                        </button>
+                    </div>
 
-                        <!-- METODE PEMBAYARAN -->
-                        <div class="space-y-1 md:space-y-1.5 mt-4">
-                            <label class="text-xs md:text-sm font-semibold text-[#1A1A1A] ml-1">Metode Pembayaran</label>
-                            <select name="metode_pembayaran" id="input-metode" required class="w-full px-4 py-3 md:px-5 md:py-4 bg-gray-50 border border-gray-200 rounded-xl text-sm md:text-base text-[#1A1A1A] focus:outline-none focus:ring-2 focus:ring-[#1A1A1A] cursor-pointer">
-                                <option value="" disabled selected class="text-gray-400">Pilih Metode...</option>
-                                <optgroup label="E-Wallet & QRIS (Bebas Admin)">
-                                    <option value="qris">QRIS (Semua Bank/E-Wallet)</option>
-                                    <option value="gopay">GoPay</option>
-                                </optgroup>
-                                <optgroup label="Virtual Account (Admin Rp 4.000)">
-                                    <option value="mandiri_va">Mandiri Virtual Account</option>
-                                    <option value="bni_va">BNI Virtual Account</option>
-                                    <option value="bri_va">BRI Virtual Account</option>
-                                    <option value="bsi_va">BSI Virtual Account</option>
-                                    <option value="cimb_va">CIMB Niaga Virtual Account</option>
-                                    <option value="permata_va">Permata Virtual Account</option>
-                                </optgroup>
-                            </select>
-                        </div>
+                </div>
+            </div>
+        </main>
+    </div>
 
-                        <div class="pt-2 md:pt-4">
-                            <button type="submit" id="btn-submit" class="w-full flex items-center justify-center gap-2 px-6 py-3 md:px-8 md:py-4 bg-[#1A1A1A] text-white font-bold text-base md:text-lg rounded-xl hover:bg-gray-800 transition-all shadow-lg transform hover:-translate-y-1" disabled>
-                                <span id="text-btn">Mengecek Proteksi Kuota...</span>
-                            </button>
-                        </div>
-                    </form>
+    <!-- 🟢 DANA-STYLE BOTTOM SHEET UI -->
+    <div id=\"bottom-sheet-overlay\" class=\"fixed inset-0 bg-black bg-opacity-50 z-40 hidden transition-opacity opacity-0 duration-300\"></div>
+    
+    <div id=\"bottom-sheet\" class=\"fixed bottom-0 left-0 right-0 w-full md:max-w-md md:mx-auto bg-white rounded-t-3xl z-50 sheet-closed transition-transform duration-300 shadow-2xl flex flex-col font-sans border-t border-gray-200\">
+        
+        <!-- Header DANA Style (Biru) -->
+        <div class=\"bg-[#118EEA] text-white px-4 py-3 flex items-center rounded-t-3xl\">
+            <button id=\"btn-close-sheet\" class=\"p-1 mr-2 focus:outline-none hover:bg-white/10 rounded-full transition-colors\">
+                <svg class=\"w-6 h-6\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\">
+                    <path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2.5\" d=\"M15 19l-7-7 7-7\"></path>
+                </svg>
+            </button>
+            <h3 class=\"text-[17px] font-semibold tracking-wide\">Konfirmasi Pembayaran</h3>
+        </div>
+        
+        <!-- Konten Merchant -->
+        <div class=\"px-5 py-5 flex items-center gap-4 border-b border-gray-100\">
+            <div class=\"w-12 h-12 bg-white border border-gray-200 rounded-full flex items-center justify-center shrink-0 shadow-sm\">
+                <svg class=\"w-6 h-6 text-[#118EEA]\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\">
+                    <path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z\"></path>
+                </svg>
+            </div>
+            <div>
+                <p class=\"text-[16px] font-semibold text-gray-800 tracking-tight\">Kirim ke e-Wallet</p>
+                <p class=\"text-[13px] text-gray-500 mt-0.5\">Global Bridge Academy - Tiket Workshop</p>
+            </div>
+        </div>
 
-                    <div id="view-soldout" class="hidden text-center py-8 fade-in">
-                        <div class="w-20 h-20 md:w-24 md:h-24 bg-gray-100 rounded-full flex items-center justify-center mx-auto mb-6 border-8 border-gray-50">
-                            <svg class="w-10 h-10 md:w-12 md:h-12 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-                        </div>
-                        <h3 class="text-2xl md:text-3xl font-extrabold text-[#1A1A1A] mb-3">Yah, Kuota Habis! 😭</h3>
-                        <p class="text-gray-500 text-sm md:text-base mb-8 px-2 leading-relaxed">Tiket Workshop ini udah ludes terjual. Sampai jumpa di event selanjutnya.</p>
-                        <button disabled class="w-full px-6 py-4 bg-gray-200 text-gray-500 font-bold text-base rounded-xl cursor-not-allowed">TIKET SOLD OUT</button>
-                    </div>
+        <!-- Total Harga (Orange DANA) -->
+        <div class=\"px-5 py-4 flex justify-between items-center border-b border-gray-100\">
+            <p class=\"text-[15px] text-gray-600\">Total Harga</p>
+            <p id=\"sheet-total-harga\" class=\"text-[28px] font-bold text-[#F38A12] tracking-tight\">Rp0</p>
+        </div>
 
-                    <div id="view-payment" class="hidden text-center py-4 fade-in">
-                        <div class="w-16 h-16 md:w-20 md:h-20 bg-green-50 rounded-full flex items-center justify-center mx-auto mb-4 border-8 border-green-100">
-                            <svg class="w-8 h-8 md:w-10 md:h-10 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path></svg>
-                        </div>
-                        <h3 class="text-2xl font-extrabold text-[#1A1A1A] mb-2">Satu Langkah Lagi!</h3>
-                        <p class="text-gray-500 text-sm mb-6">Selesaikan pembayaran di tab yang baru saja terbuka.</p>
-                        
-                        <div class="bg-yellow-50 border border-yellow-200 p-4 rounded-xl text-left mb-6 relative overflow-hidden text-sm text-gray-700">
-                            <div class="absolute top-0 left-0 w-1 h-full bg-[#D8A607]"></div>
-                            <p class="font-bold text-[#1A1A1A] mb-2 flex items-center gap-1.5">
-                                <svg class="w-4 h-4 text-[#D8A607]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-                                Instruksi Penting
-                            </p>
-                            <ul class="list-disc pl-4 space-y-1">
-                                <li>Jika tab kasir tidak terbuka, <a id="link-payment-fallback" href="#" target="_blank" class="font-bold text-blue-600 underline">klik di sini</a>.</li>
-                                <li>Setelah transfer, <b>wajib klik tombol di bawah</b> untuk konfirmasi tiket.</li>
-                            </ul>
-                        </div>
-                        
-                        <button id="btn-verify-payment" class="w-full flex items-center justify-center gap-2 px-6 py-3 bg-green-500 text-white font-bold text-base rounded-xl hover:bg-green-600 transition-all shadow-md">
-                            <span id="text-btn-verify">SAYA SUDAH BAYAR</span>
-                        </button>
-                    </div>
+        <!-- Breakdown Rincian -->
+        <div class=\"px-5 py-4 space-y-3 text-[14px] text-gray-500\">
+            <div class=\"flex justify-between\">
+                <span id=\"sheet-nama-paket\">Subtotal</span>
+                <span id=\"sheet-subtotal\">Rp0</span>
+            </div>
+            <div class=\"flex justify-between\">
+                <span>Biaya Transaksi</span>
+                <span id=\"sheet-admin\">Rp0</span>
+            </div>
+            <div id=\"sheet-promo-row\" class=\"flex justify-between hidden text-green-600 font-medium\">
+                <span id=\"sheet-promo-name\">Promo</span>
+                <span id=\"sheet-promo-amount\">-Rp0</span>
+            </div>
+        </div>
+        
+        <!-- Tombol Bayar Bawah -->
+        <div class=\"p-5 bg-white border-t border-gray-100 pb-8 md:pb-5 rounded-b-3xl\">
+            <button id=\"btn-pay-midtrans\" class=\"w-full py-3.5 bg-[#118EEA] text-white font-bold text-[16px] rounded-lg shadow-md hover:bg-[#0e7bcc] transition-all tracking-wide\">
+                BAYAR Rp0
+            </button>
+        </div>
+    </div>
 
-                </div>
-            </div>
-        </main>
-    </div>
-
-    <!-- 🟢 DANA-STYLE BOTTOM SHEET UI -->
-    <div id="bottom-sheet-overlay" class="fixed inset-0 bg-black bg-opacity-50 z-40 hidden transition-opacity opacity-0 duration-300"></div>
-    
-    <div id="bottom-sheet" class="fixed bottom-0 left-0 right-0 w-full md:max-w-md md:mx-auto bg-white rounded-t-3xl z-50 sheet-closed transition-transform duration-300 shadow-2xl flex flex-col font-sans border-t border-gray-200">
-        
-        <!-- Header DANA Style (Biru) -->
-        <div class="bg-[#118EEA] text-white px-4 py-3 flex items-center rounded-t-3xl">
-            <button id="btn-close-sheet" class="p-1 mr-2 focus:outline-none hover:bg-white/10 rounded-full transition-colors">
-                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M15 19l-7-7 7-7"></path>
-                </svg>
-            </button>
-            <h3 class="text-[17px] font-semibold tracking-wide">Konfirmasi Pembayaran</h3>
-        </div>
-        
-        <!-- Konten Merchant -->
-        <div class="px-5 py-5 flex items-center gap-4 border-b border-gray-100">
-            <div class="w-12 h-12 bg-white border border-gray-200 rounded-full flex items-center justify-center shrink-0 shadow-sm">
-                <!-- Ikon Kirim/Merchant ala DANA -->
-                <svg class="w-6 h-6 text-[#118EEA]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
-                </svg>
-            </div>
-            <div>
-                <p class="text-[16px] font-semibold text-gray-800 tracking-tight">Kirim ke e-Wallet</p>
-                <p class="text-[13px] text-gray-500 mt-0.5">Global Bridge Academy - Tiket Workshop</p>
-            </div>
-        </div>
-
-        <!-- Total Harga (Orange DANA) -->
-        <div class="px-5 py-4 flex justify-between items-center border-b border-gray-100">
-            <p class="text-[15px] text-gray-600">Total Harga</p>
-            <p id="sheet-total-harga" class="text-[28px] font-bold text-[#F38A12] tracking-tight">Rp0</p>
-        </div>
-
-        <!-- Breakdown Rincian -->
-        <div class="px-5 py-4 space-y-3 text-[14px] text-gray-500">
-            <div class="flex justify-between">
-                <span id="sheet-nama-paket">Subtotal</span>
-                <span id="sheet-subtotal">Rp0</span>
-            </div>
-            <div class="flex justify-between">
-                <span>Biaya Transaksi</span>
-                <span id="sheet-admin">Rp0</span>
-            </div>
-            <!-- Baris Promo (Disembunyikan kalau gak ada diskon) -->
-            <div id="sheet-promo-row" class="flex justify-between hidden text-green-600 font-medium">
-                <span id="sheet-promo-name">Promo</span>
-                <span id="sheet-promo-amount">-Rp0</span>
-            </div>
-        </div>
-        
-        <!-- Tombol Bayar Bawah -->
-        <div class="p-5 bg-white border-t border-gray-100 pb-8 md:pb-5 rounded-b-3xl">
-            <button id="btn-pay-midtrans" class="w-full py-3.5 bg-[#118EEA] text-white font-bold text-[16px] rounded-lg shadow-md hover:bg-[#0e7bcc] transition-all tracking-wide">
-                BAYAR Rp0
-            </button>
-        </div>
-    </div>
-
-<script>
+    <script>
         class WorkshopRegistration {
             constructor() {
-                this.API_URL = 'https://script.google.com/macros/s/AKfycbx7uieUYHUk4_ACOJt5a4Uay0pkrNf4al7Cqatx5rpI3N366uvCkNaXeWUIbvMBM7M0/exec';
+                this.API_URL = 'https://script.google.com/macros/s/AKfycbyCSvoFVs4BBXAH4eWDf0XkLAvvm8GYsG9c-D-i5UYB_GBCoX7r38taGVa16R6-1kLb/exec';
                 this.RECAPTCHA_SITE_KEY = '6LdOnvosAAAAAF7d2kT11AXQZEjFHuwDQIgVJlyG';
 
-                // 🟢 Tambahin variabel buat nangkep harga dari Backend
-                this.state = { 
-                    ticketId: null, paymentUrl: null, dynamicToken: null, isSubmitting: false, 
-                    diskon: 0, kodePromo: "", hargaDasar: 0, adminFee: 0, totalBayar: 0 
+                this.state = {
+                    ticketId: null,
+                    paymentUrl: null,
+                    dynamicToken: null,
+                    isSubmitting: false,
+                    diskon: 0,
+                    kodePromo: \"\",
+                    // 🟢 SEMUA KONFIG HARGA & INFO DARI BACKEND (DEFAULT FALLBACK)
+                    config: {
+                        harga_reguler: 0,
+                        harga_bundling: 0,
+                        admin_fee_va: 0,
+                        admin_fee_ewallet: 0,
+                        label_paket_reguler: \"Tiket Reguler\",
+                        label_paket_bundling: \"Tiket Bundling (2 Orang)\"
+                    }
                 };
                 
                 this.ui = {
@@ -406,12 +410,26 @@
                     selectPaket: document.getElementById('input-paket'), formPeserta2: document.getElementById('form-peserta-2'), inputNama2: document.getElementById('input-nama-2'), 
                     inputEmail2: document.getElementById('input-email-2'), inputWa2: document.getElementById('input-wa-2'),
                     selectKesibukan2: document.getElementById('input-kesibukan-2'), inputLainnya2: document.getElementById('input-lainnya-2'), inputMasalah2: document.getElementById('input-masalah-2'),
-                    
+                    selectMetode: document.getElementById('input-metode'),
+                    metodeGroupVa: document.getElementById('metode-group-va'),
+
+                    // Info Card kiri (DYNAMIC)
+                    infoHargaTiket: document.getElementById('info-harga-tiket'),
+                    infoTanggal: document.getElementById('info-tanggal'),
+                    infoJam: document.getElementById('info-jam'),
+                    infoLokasiNama: document.getElementById('info-lokasi-nama'),
+                    infoLokasiKota: document.getElementById('info-lokasi-kota'),
+                    infoSpeakerNama: document.getElementById('info-speaker-nama'),
+                    infoSpeakerTitle: document.getElementById('info-speaker-title'),
+                    infoTopics: document.getElementById('info-topics'),
+
+                    // UI Bottom Sheet
                     bottomSheet: document.getElementById('bottom-sheet'),
                     bottomSheetOverlay: document.getElementById('bottom-sheet-overlay'),
                     btnCloseSheet: document.getElementById('btn-close-sheet'),
                     btnPayMidtrans: document.getElementById('btn-pay-midtrans')
                 };
+                this.formatter = new Intl.NumberFormat('id-ID', { style: 'currency', currency: 'IDR', minimumFractionDigits: 0 });
                 this.init();
             }
 
@@ -422,15 +440,15 @@
                 this.ui.btnVerify.addEventListener('click', () => this.verifyPaymentStatus());
                 
                 this.ui.inputEmail.addEventListener('input', (e) => {
-                    const isValid = e.target.value === "" || /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(e.target.value);
+                    const isValid = e.target.value === \"\" || /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(e.target.value);
                     this.ui.errorEmail.classList.toggle('hidden', isValid);
-                    const isMetodeSelected = document.getElementById('input-metode').value !== "";
+                    const isMetodeSelected = this.ui.selectMetode.value !== \"\";
                     this.ui.btnSubmit.disabled = !isValid || !isMetodeSelected;
                 });
                 
-                document.getElementById('input-metode').addEventListener('change', () => {
-                    const isValidEmail = this.ui.inputEmail.value === "" || /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(this.ui.inputEmail.value);
-                    this.ui.btnSubmit.disabled = !isValidEmail || document.getElementById('input-metode').value === "";
+                this.ui.selectMetode.addEventListener('change', () => {
+                    const isValidEmail = this.ui.inputEmail.value === \"\" || /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(this.ui.inputEmail.value);
+                    this.ui.btnSubmit.disabled = !isValidEmail || this.ui.selectMetode.value === \"\";
                 });
                 
                 this.ui.selectKesibukan.addEventListener('change', (e) => {
@@ -481,32 +499,119 @@
                 this.ui.bottomSheetOverlay.addEventListener('click', () => this.closeBottomSheet());
                 
                 this.ui.btnPayMidtrans.addEventListener('click', () => {
-                    window.open(this.state.paymentUrl, "_blank");
+                    window.open(this.state.paymentUrl, \"_blank\");
                     this.switchView('payment');
                     this.closeBottomSheet();
                 });
             }
 
+            /**
+             * 🟢 Ambil konfigurasi & status kuota dari backend.
+             * Backend (Google Apps Script) HARUS balikin JSON seperti ini:
+             * {
+             *   \"status\": \"ready\" | \"habis\",
+             *   \"dynamicToken\": \"xxx\",
+             *   \"config\": {
+             *     \"harga_reguler\": 96000,
+             *     \"harga_bundling\": 180000,
+             *     \"admin_fee_va\": 4000,
+             *     \"admin_fee_ewallet\": 0,
+             *     \"label_paket_reguler\": \"Tiket Reguler\",
+             *     \"label_paket_bundling\": \"Tiket Bundling (2 Orang)\",
+             *     \"info\": {
+             *       \"harga_display\": \"Rp. 75.000\",
+             *       \"tanggal\": \"06 Juni 2026\",
+             *       \"jam\": \"09.00 - 13.00 WIB\",
+             *       \"lokasi_nama\": \"Glowork Space\",
+             *       \"lokasi_kota\": \"Jakarta Selatan\",
+             *       \"speaker_nama\": \"Ka David Johan\",
+             *       \"speaker_title\": \"Founder & Product Wallet Ya\",
+             *       \"topics\": [\"Membangun Financial Mindset\", \"Mengatur Cashflow\", ...]
+             *     }
+             *   }
+             * }
+             */
             async loadPreFlightData() {
                 try {
                     const response = await fetch(this.API_URL);
                     const data = await response.json();
-                    if (data.status === 'habis') { this.switchView('soldout'); } 
-                    else {
-                        this.state.dynamicToken = data.dynamicToken;
-                        this.ui.btnSubmit.disabled = true;
-                        this.ui.textBtnSubmit.innerHTML = 'Daftar & Bayar ➡️';
+
+                    if (data.status === 'habis') {
+                        this.switchView('soldout');
+                        return;
                     }
+
+                    this.state.dynamicToken = data.dynamicToken;
+
+                    // 🟢 Apply config dari backend
+                    if (data.config) {
+                        this.applyConfig(data.config);
+                    }
+
+                    this.ui.btnSubmit.disabled = true;
+                    this.ui.textBtnSubmit.innerHTML = 'Daftar & Bayar ➡️';
                 } catch (error) {
+                    console.error('Gagal load config dari backend:', error);
                     this.ui.btnSubmit.disabled = false;
                     this.ui.textBtnSubmit.innerHTML = 'Daftar & Bayar';
                 }
             }
 
+            // 🟢 Render config backend ke UI
+            applyConfig(cfg) {
+                // Harga & fee
+                if (typeof cfg.harga_reguler === 'number') this.state.config.harga_reguler = cfg.harga_reguler;
+                if (typeof cfg.harga_bundling === 'number') this.state.config.harga_bundling = cfg.harga_bundling;
+                if (typeof cfg.admin_fee_va === 'number') this.state.config.admin_fee_va = cfg.admin_fee_va;
+                if (typeof cfg.admin_fee_ewallet === 'number') this.state.config.admin_fee_ewallet = cfg.admin_fee_ewallet;
+                if (cfg.label_paket_reguler) this.state.config.label_paket_reguler = cfg.label_paket_reguler;
+                if (cfg.label_paket_bundling) this.state.config.label_paket_bundling = cfg.label_paket_bundling;
+
+                // Update label dropdown paket
+                const optReguler = this.ui.selectPaket.querySelector('option[value=\"reguler\"]');
+                const optBundling = this.ui.selectPaket.querySelector('option[value=\"bundling\"]');
+                if (optReguler) optReguler.textContent = this.state.config.label_paket_reguler;
+                if (optBundling) optBundling.textContent = this.state.config.label_paket_bundling;
+
+                // Update label optgroup VA dengan biaya admin dinamis
+                if (this.ui.metodeGroupVa && this.state.config.admin_fee_va > 0) {
+                    this.ui.metodeGroupVa.label = `Virtual Account (Admin ${this.formatter.format(this.state.config.admin_fee_va)})`;
+                }
+
+                // Info Card kiri
+                const info = cfg.info || {};
+                if (info.harga_display) {
+                    this.ui.infoHargaTiket.textContent = info.harga_display;
+                } else if (this.state.config.harga_reguler > 0) {
+                    this.ui.infoHargaTiket.textContent = this.formatter.format(this.state.config.harga_reguler);
+                }
+                if (info.tanggal) this.ui.infoTanggal.textContent = info.tanggal;
+                if (info.jam) this.ui.infoJam.textContent = info.jam;
+                if (info.lokasi_nama) this.ui.infoLokasiNama.textContent = info.lokasi_nama;
+                if (info.lokasi_kota) this.ui.infoLokasiKota.textContent = info.lokasi_kota;
+                if (info.speaker_nama) this.ui.infoSpeakerNama.textContent = info.speaker_nama;
+                if (info.speaker_title) this.ui.infoSpeakerTitle.textContent = info.speaker_title;
+
+                if (Array.isArray(info.topics) && info.topics.length > 0) {
+                    this.ui.infoTopics.innerHTML = info.topics.map(t => `
+                        <li class=\"flex items-center gap-2\">
+                            <svg class=\"w-5 h-5 text-green-500\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\">
+                                <path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"3\" d=\"M5 13l4 4L19 7\"></path>
+                            </svg>
+                            ${this.escapeHtml(t)}
+                        </li>
+                    `).join('');
+                }
+            }
+
+            escapeHtml(s) {
+                return String(s).replace(/[&<>\"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','\"':'&quot;',\"'\":'&#39;'}[c]));
+            }
+
             async handleFormSubmit(e) {
                 e.preventDefault();
                 if (this.state.isSubmitting) return;
-                this.setLoadingState(true, this.ui.btnSubmit, this.ui.textBtnSubmit, "Mengamankan Koneksi AI...");
+                this.setLoadingState(true, this.ui.btnSubmit, this.ui.textBtnSubmit, \"Mengamankan Koneksi AI...\");
 
                 grecaptcha.ready(() => {
                     grecaptcha.execute(this.RECAPTCHA_SITE_KEY, {action: 'submit'}).then(async (token) => {
@@ -522,38 +627,67 @@
                                 this.state.paymentUrl = result.paymentUrl;
                                 this.state.ticketId = result.ticketId;
                                 
-                                // 🟢 TANGKAP SEMUA DATA HARGA DARI BACKEND
+                                // 🟢 Backend bisa override total/subtotal/admin/diskon supaya nota sinkron 100% sama backend
                                 this.state.diskon = result.diskon || 0;
-                                this.state.kodePromo = result.kodePromo || "";
-                                this.state.hargaDasar = result.hargaDasar || 0;
-                                this.state.adminFee = result.adminFee || 0;
-                                this.state.totalBayar = result.totalBayar || 0;
-                                
+                                this.state.kodePromo = result.kodePromo || \"\";
+                                this.state.backendBreakdown = {
+                                    subtotal: typeof result.subtotal === 'number' ? result.subtotal : null,
+                                    adminFee: typeof result.adminFee === 'number' ? result.adminFee : null,
+                                    total: typeof result.total === 'number' ? result.total : null,
+                                    namaPaket: result.namaPaket || null
+                                };
+
                                 this.ui.linkPaymentFallback.href = result.paymentUrl;
                                 this.showBottomSheet();
-                            } else { throw new Error(result.message || "Akses Server Ditolak."); }
+                            } else { throw new Error(result.message || \"Akses Server Ditolak.\"); }
                         } catch (error) { this.showErrorAlert(error.message); } 
-                        finally { this.setLoadingState(false, this.ui.btnSubmit, this.ui.textBtnSubmit, "Daftar & Bayar ➡️"); }
+                        finally { this.setLoadingState(false, this.ui.btnSubmit, this.ui.textBtnSubmit, \"Daftar & Bayar ➡️\"); }
                     });
                 });
             }
 
-            // 🟢 SEKARANG RENDER NOTA PAKE DATA DARI BACKEND
+            // 🟢 Render Nota - 100% pakai data dari backend (atau hitung dari config backend)
             showBottomSheet() {
-                const formatter = new Intl.NumberFormat('id-ID', { style: 'currency', currency: 'IDR', minimumFractionDigits: 0 });
+                const paket = this.ui.selectPaket.value;
+                const metode = this.ui.selectMetode.value;
 
-                document.getElementById('sheet-subtotal').innerText = formatter.format(this.state.hargaDasar);
-                document.getElementById('sheet-admin').innerText = formatter.format(this.state.adminFee);
+                // Subtotal & label paket
+                const hargaTiket = paket === 'bundling'
+                    ? this.state.config.harga_bundling
+                    : this.state.config.harga_reguler;
+
+                const namaPaket = paket === 'bundling'
+                    ? this.state.config.label_paket_bundling
+                    : this.state.config.label_paket_reguler;
+
+                // Admin fee - dari config backend (bukan hardcoded lagi)
+                const isEwallet = (metode === 'qris' || metode === 'gopay');
+                const adminFee = isEwallet
+                    ? this.state.config.admin_fee_ewallet
+                    : this.state.config.admin_fee_va;
+
+                // Kalau backend kirim breakdown final, prioritaskan itu (biar sinkron sama Midtrans)
+                const bk = this.state.backendBreakdown || {};
+                const subtotalFinal = bk.subtotal !== null && bk.subtotal !== undefined ? bk.subtotal : hargaTiket;
+                const adminFinal = bk.adminFee !== null && bk.adminFee !== undefined ? bk.adminFee : adminFee;
+                const totalFinal = bk.total !== null && bk.total !== undefined
+                    ? bk.total
+                    : (subtotalFinal + adminFinal - this.state.diskon);
+                const namaPaketFinal = bk.namaPaket || namaPaket;
+
+                document.getElementById('sheet-nama-paket').innerText = namaPaketFinal;
+                document.getElementById('sheet-subtotal').innerText = this.formatter.format(subtotalFinal);
+                document.getElementById('sheet-admin').innerText = this.formatter.format(adminFinal);
                 
                 if (this.state.diskon > 0) {
                     document.getElementById('sheet-promo-row').classList.remove('hidden');
                     document.getElementById('sheet-promo-name').innerText = `Promo (${this.state.kodePromo})`;
-                    document.getElementById('sheet-promo-amount').innerText = `-${formatter.format(this.state.diskon)}`;
+                    document.getElementById('sheet-promo-amount').innerText = `-${this.formatter.format(this.state.diskon)}`;
                 } else {
                     document.getElementById('sheet-promo-row').classList.add('hidden');
                 }
 
-                const formatTotal = formatter.format(this.state.totalBayar);
+                const formatTotal = this.formatter.format(totalFinal);
                 document.getElementById('sheet-total-harga').innerText = formatTotal;
                 this.ui.btnPayMidtrans.innerText = `BAYAR ${formatTotal.replace(/\s/g, '')}`;
 
@@ -569,14 +703,11 @@
                 this.ui.bottomSheet.classList.remove('sheet-open');
                 this.ui.bottomSheet.classList.add('sheet-closed');
                 this.ui.bottomSheetOverlay.classList.add('opacity-0');
-                
-                setTimeout(() => {
-                    this.ui.bottomSheetOverlay.classList.add('hidden');
-                }, 300); 
+                setTimeout(() => { this.ui.bottomSheetOverlay.classList.add('hidden'); }, 300); 
             }
 
             async verifyPaymentStatus() {
-                this.setLoadingState(true, this.ui.btnVerify, this.ui.textBtnVerify, "Memeriksa Mutasi Bank...");
+                this.setLoadingState(true, this.ui.btnVerify, this.ui.textBtnVerify, \"Memeriksa Mutasi Bank...\");
                 try {
                     const formData = new FormData();
                     formData.append('action', 'verify_payment');
@@ -585,8 +716,8 @@
                     const result = await response.json();
                     if (result.status === 'LUNAS') { Swal.fire('Lunas! 🎉', 'E-Tiket resmi telah dikirim ke email masing-masing peserta.', 'success'); } 
                     else { Swal.fire('Status: Pending ⏳', 'Pembayaran belum masuk di sistem. Tunggu max 5 menit.', 'info'); }
-                } catch (error) { this.showErrorAlert("Gagal terhubung ke database server."); } 
-                finally { this.setLoadingState(false, this.ui.btnVerify, this.ui.textBtnVerify, "SAYA SUDAH BAYAR"); }
+                } catch (error) { this.showErrorAlert(\"Gagal terhubung ke database server.\"); } 
+                finally { this.setLoadingState(false, this.ui.btnVerify, this.ui.textBtnVerify, \"SAYA SUDAH BAYAR\"); }
             }
 
             switchView(v) {
@@ -598,7 +729,7 @@
             setLoadingState(isLoading, button, text, msg) {
                 this.state.isSubmitting = isLoading; button.disabled = isLoading;
                 button.classList.toggle('opacity-75', isLoading);
-                text.innerHTML = isLoading ? `<svg class="animate-spin -ml-1 mr-2 h-5 w-5 text-white inline" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg> ${msg}` : msg;
+                text.innerHTML = isLoading ? `<svg class=\"animate-spin -ml-1 mr-2 h-5 w-5 text-white inline\" xmlns=\"http://www.w3.org/2000/svg\" fill=\"none\" viewBox=\"0 0 24 24\"><circle class=\"opacity-25\" cx=\"12\" cy=\"12\" r=\"10\" stroke=\"currentColor\" stroke-width=\"4\"></circle><path class=\"opacity-75\" fill=\"currentColor\" d=\"M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z\"></path></svg> ${msg}` : msg;
             }
 
             showErrorAlert(msg) { Swal.fire({ title: 'Akses Ditolak! ⚠️', text: msg, icon: 'error', confirmButtonColor: '#1A1A1A' }); }
