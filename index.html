@@ -321,7 +321,12 @@
                 this.API_URL = 'https://script.google.com/macros/s/AKfycbyCSvoFVs4BBXAH4eWDf0XkLAvvm8GYsG9c-D-i5UYB_GBCoX7r38taGVa16R6-1kLb/exec';
                 this.RECAPTCHA_SITE_KEY = '6LdOnvosAAAAAF7d2kT11AXQZEjFHuwDQIgVJlyG';
 
-                this.state = { ticketId: null, paymentUrl: null, dynamicToken: null, isSubmitting: false, diskon: 0, kodePromo: "" };
+                // 🟢 State untuk menampung harga dari Backend
+                this.state = { 
+                    ticketId: null, paymentUrl: null, dynamicToken: null, 
+                    isSubmitting: false, diskon: 0, kodePromo: "",
+                    hargaDasar: 0, adminFee: 0, totalBayar: 0 
+                };
                 
                 this.ui = {
                     form: document.getElementById('form-pendaftaran'), viewSoldOut: document.getElementById('view-soldout'), viewPayment: document.getElementById('view-payment'),
@@ -408,6 +413,20 @@
                 this.ui.bottomSheetOverlay.addEventListener('click', () => this.closeBottomSheet());
                 
                 this.ui.btnPayMidtrans.addEventListener('click', () => {
+                    // 🟢 BYPASS MIDTRANS JIKA TIKET GRATIS
+                    if (this.state.paymentUrl === "FREE_BYPASS" || this.state.totalBayar === 0) {
+                        Swal.fire({
+                            title: 'Pendaftaran Berhasil! 🎉',
+                            text: 'Selamat, kamu mendapatkan slot GRATIS! E-Tiket resmi telah dikirim ke alamat email peserta.',
+                            icon: 'success',
+                            confirmButtonColor: '#1A1A1A'
+                        });
+                        this.ui.form.reset();
+                        this.closeBottomSheet();
+                        return;
+                    }
+
+                    // Alur normal jika berbayar
                     window.open(this.state.paymentUrl, "_blank");
                     this.switchView('payment');
                     this.closeBottomSheet();
@@ -449,11 +468,14 @@
                                 this.state.paymentUrl = result.paymentUrl;
                                 this.state.ticketId = result.ticketId;
                                 
-                                // Tangkap diskon dari Apps Script
+                                // 🟢 Tangkap data detail harga 100% akurat dari Backend
                                 this.state.diskon = result.diskon || 0;
                                 this.state.kodePromo = result.kodePromo || "";
+                                this.state.hargaDasar = result.hargaDasar || 0;
+                                this.state.adminFee = result.adminFee || 0;
+                                this.state.totalBayar = result.totalBayar || 0;
                                 
-                                this.ui.linkPaymentFallback.href = result.paymentUrl;
+                                this.ui.linkPaymentFallback.href = result.paymentUrl !== "FREE_BYPASS" ? result.paymentUrl : "#";
                                 
                                 // Buka Bottom Sheet
                                 this.showBottomSheet();
@@ -464,25 +486,12 @@
                 });
             }
 
-            // 🟢 Fungsi render UI ala DANA
+            // 🟢 TAMPILAN NOTA BERDASARKAN BACKEND
             showBottomSheet() {
-                const paket = this.ui.selectPaket.value;
-                const metodeSelect = document.getElementById('input-metode');
-                const metode = metodeSelect.value;
-                
-                const hargaTiket = paket === 'bundling' ? 140000 : 75000;
-                let adminFee = 0;
-                if (metode !== 'qris' && metode !== 'gopay') {
-                    adminFee = 4000;
-                }
-                
-                const totalBayar = hargaTiket + adminFee - this.state.diskon;
-                
                 const formatter = new Intl.NumberFormat('id-ID', { style: 'currency', currency: 'IDR', minimumFractionDigits: 0 });
 
-                // Render detail ke dalam HTML Bottom Sheet
-                document.getElementById('sheet-subtotal').innerText = formatter.format(hargaTiket);
-                document.getElementById('sheet-admin').innerText = formatter.format(adminFee);
+                document.getElementById('sheet-subtotal').innerText = formatter.format(this.state.hargaDasar);
+                document.getElementById('sheet-admin').innerText = formatter.format(this.state.adminFee);
                 
                 if (this.state.diskon > 0) {
                     document.getElementById('sheet-promo-row').classList.remove('hidden');
@@ -492,14 +501,13 @@
                     document.getElementById('sheet-promo-row').classList.add('hidden');
                 }
 
-                const formatTotal = formatter.format(totalBayar);
+                const formatTotal = formatter.format(this.state.totalBayar);
                 document.getElementById('sheet-total-harga').innerText = formatTotal;
                 this.ui.btnPayMidtrans.innerText = `BAYAR ${formatTotal.replace(/\s/g, '')}`;
 
                 // Tampilkan Overlay & Modal
                 this.ui.bottomSheetOverlay.classList.remove('hidden');
                 
-                // Beri sedikit jeda agar transisi CSS jalan
                 setTimeout(() => {
                     this.ui.bottomSheetOverlay.classList.remove('opacity-0');
                     this.ui.bottomSheet.classList.remove('sheet-closed');
